@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Сергей Резунков | Веб-разработчик и Telegram-боты</title>
+    <meta name="description" content="Портфолио веб-разработчика Сергея Резункова: создаю сайты, Telegram-ботов, интерактивные виджеты. Качественно и быстро.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">&lt;/&gt; Сергей Резунков</a>
+            <nav class="nav">
+                <a href="#hero" class="nav-link">Главная</a>
+                <a href="#portfolio" class="nav-link">Портфолио</a>
+                <a href="#about" class="nav-link">Обо мне</a>
+                <a href="#contact" class="nav-link">Контакты</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-tag">Веб-разработчик</span>
+                    <h1 class="hero-title">Создаю <span class="accent">сайты и ботов</span>, которые работают на вас</h1>
+                    <p class="hero-desc">Превращаю идеи в современные веб-решения. Адаптивный дизайн, чистый код, Telegram-боты под любые задачи.</p>
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary">Смотреть проекты</a>
+                        <a href="#contact" class="btn btn-outline">Связаться →</a>
+                    </div>
+                </div>
+                <div class="hero-illustration">
+                    <div class="floating-card">
+                        <div class="code-icon">&lt;/&gt;</div>
+                        <div class="tech-badge">HTML/CSS/JS</div>
+                        <div class="tech-badge">Python / Bot API</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Мои работы</h2>
+                    <p>Каждый проект — это решение конкретной задачи и чистый, поддерживаемый код</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=Weatherly+Weather+App" alt="Weatherly погодное приложение">
+                            <span class="project-type">Веб-приложение</span>
+                        </div>
+                        <div class="project-info">
+                            <h3>Weatherly — прогноз погоды</h3>
+                            <p>Интерактивный виджет с определением геолокации, сохранением последнего города и адаптивным дизайном. Работает с OpenWeatherMap API.</p>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript (ES6+)</span>
+                                <span>REST API</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://fliperrsv.github.io/weather-app/" target="_blank" class="btn-demo">🔗 Демо</a>
+                                <a href="#" class="btn-details" data-project="weatherly">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container about-container">
+                <div class="about-photo">
+                    <div class="photo-placeholder">
+                        <span>📸</span>
+                        <!-- Замените на своё фото: <img src="ваше_фото.jpg" alt="Сергей Резунков"> -->
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h2>Обо мне</h2>
+                    <p>Привет! Меня зовут <strong>Сергей Резунков</strong>, я веб-разработчик и создаю сайты/ботов на заказ. Люблю превращать сложные задачи в элегантные и понятные решения.</p>
+                    <p>Мой стек: HTML5, CSS3, адаптивная вёрстка, JavaScript (React — в процессе), Python для Telegram-ботов (aiogram, python-telegram-bot). Постоянно учусь и развиваюсь.</p>
+                    <div class="skills">
+                        <div class="skill-item">HTML/CSS/JS</div>
+                        <div class="skill-item">React (изучаю)</div>
+                        <div class="skill-item">Python / Bot API</div>
+                        <div class="skill-item">Git & GitHub</div>
+                        <div class="skill-item">Адаптивный дизайн</div>
+                        <div class="skill-item">Работа с API</div>
+                    </div>
+                    <div class="about-links">
+                        <a href="#" class="btn-resume" id="resumeBtn">📄 Скачать резюме (PDF)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Свяжитесь со мной</h2>
+                    <p>Готов обсудить ваш проект или ответить на вопросы</p>
+                </div>
+                <div class="contact-wrapper">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="4" placeholder="Опишите задачу или вопрос" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить сообщение →</button>
+                        <div id="formStatus" class="form-status"></div>
+                    </form>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📧</span> <a href="mailto:fliperrsv@yandex.ru">fliperrsv@yandex.ru</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>💬</span> <a href="https://t.me/fliperrsv1" target="_blank">Telegram: @fliperrsv1</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>🐙</span> <a href="https://github.com/fliperrsv" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Сергей Резунков. Все проекты реальны и могут быть продемонстрированы.</p>
+        </div>
+    </footer>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
