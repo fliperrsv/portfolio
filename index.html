@@ -13,10 +13,6 @@
 </head>
 <body>
 
-<div class="preloader" id="preloader">
-    <div class="preloader-spinner"></div>
-</div>
-
 <header class="header">
     <div class="container header-container">
         <a href="#" class="logo" aria-label="На главную">
@@ -115,7 +111,12 @@
             <div class="projects-grid">
                 <div class="project-card" data-category="web">
                     <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=Weatherly" alt="Weatherly погодное приложение" loading="lazy">
+                        <!-- Три миниатюры скриншотов -->
+                        <div class="screenshot-gallery">
+                            <img src="Screenshot_20260603-230956.jpg" alt="Экран погоды 1" class="gallery-thumb" onclick="openImageModal(this.src)">
+                            <img src="Screenshot_20260603-231025.jpg" alt="Экран погоды 2" class="gallery-thumb" onclick="openImageModal(this.src)">
+                            <img src="Screenshot_20260603-231100.jpg" alt="Экран погоды 3" class="gallery-thumb" onclick="openImageModal(this.src)">
+                        </div>
                         <span class="project-type">Веб-приложение</span>
                     </div>
                     <div class="project-info">
@@ -194,8 +195,7 @@
         <div class="container about-container">
             <div class="about-photo">
                 <div class="photo-frame">
-                    <!-- ВАШЕ ФОТО: файл лежит в той же папке репозитория -->
-                    <img src="IMG_20240902_110506_091.jpg" alt="Сергей Резунков" id="profileImage" onerror="this.src='https://via.placeholder.com/400x400/2c3e50/ffffff?text=Фото'">
+                    <img src="IMG_20240902_110506_091.jpg" alt="Сергей Резунков" onerror="this.src='https://via.placeholder.com/400x400/2c3e50/ffffff?text=Фото'">
                 </div>
             </div>
             <div class="about-content">
@@ -275,22 +275,52 @@
     </div>
 </footer>
 
+<!-- Модальное окно для изображений (увеличение скриншотов) -->
+<div id="imageModal" class="modal">
+    <div class="modal-content" style="max-width: 90%; text-align: center;">
+        <span class="modal-close" id="closeImageModal">&times;</span>
+        <img id="modalImage" src="" alt="Увеличенный скриншот" style="max-width: 100%; max-height: 80vh; border-radius: 16px;">
+    </div>
+</div>
+
+<!-- Модальное окно для подробного описания проекта -->
 <div id="projectModal" class="modal">
     <div class="modal-content">
-        <span class="modal-close">&times;</span>
+        <span class="modal-close" id="closeProjectModal">&times;</span>
         <div id="modalBody"></div>
     </div>
 </div>
 
 <script src="script.js"></script>
 <script>
-    // Принудительно скрыть прелоадер через 2 секунды, даже если основной скрипт не сработал
-    setTimeout(function() {
-        var preloader = document.getElementById('preloader');
-        if (preloader) {
-            preloader.style.display = 'none';
-        }
-    }, 2000);
-</script>   
+    // Функция для открытия модального окна с увеличенным изображением
+    function openImageModal(src) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        modal.style.display = 'flex';
+        modalImg.src = src;
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Закрытие модального окна изображений
+    const closeImageModal = document.getElementById('closeImageModal');
+    if (closeImageModal) {
+        closeImageModal.onclick = function() {
+            document.getElementById('imageModal').style.display = 'none';
+            document.body.style.overflow = '';
+        };
+    }
+
+    // Также закрываем по клику вне изображения
+    const imageModal = document.getElementById('imageModal');
+    if (imageModal) {
+        imageModal.onclick = function(e) {
+            if (e.target === imageModal) {
+                imageModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        };
+    }
+</script>
 </body>
 </html>
