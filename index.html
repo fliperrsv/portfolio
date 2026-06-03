@@ -283,5 +283,14 @@
 </div>
 
 <script src="script.js"></script>
+<script>
+    // Принудительно скрыть прелоадер через 2 секунды, даже если основной скрипт не сработал
+    setTimeout(function() {
+        var preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.style.display = 'none';
+        }
+    }, 2000);
+</script>   
 </body>
 </html>
