@@ -3,154 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Сергей Резунков | Веб-разработчик и Telegram-боты</title>
-    <meta name="description" content="Портфолио веб-разработчика Сергея Резункова: создаю сайты, Telegram-ботов, интерактивные виджеты. Качественно и быстро.">
+    <title>Сергей Резунков | Веб-разработчик</title>
+    <meta name="description" content="Портфолио веб-разработчика. Создаю сайты и Telegram-ботов, которые приносят прибыль бизнесу.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="container header-container">
-            <a href="#" class="logo">&lt;/&gt; Сергей Резунков</a>
-            <nav class="nav">
-                <a href="#hero" class="nav-link">Главная</a>
-                <a href="#portfolio" class="nav-link">Портфолио</a>
-                <a href="#about" class="nav-link">Обо мне</a>
-                <a href="#contact" class="nav-link">Контакты</a>
-            </nav>
-            <button class="mobile-menu-btn" aria-label="Меню">☰</button>
-        </div>
-    </header>
 
-    <main>
-        <section id="hero" class="hero">
-            <div class="container hero-container">
-                <div class="hero-content">
-                    <span class="hero-tag">Веб-разработчик</span>
-                    <h1 class="hero-title">Создаю <span class="accent">сайты и ботов</span>, которые работают на вас</h1>
-                    <p class="hero-desc">Превращаю идеи в современные веб-решения. Адаптивный дизайн, чистый код, Telegram-боты под любые задачи.</p>
-                    <div class="hero-buttons">
-                        <a href="#portfolio" class="btn btn-primary">Смотреть проекты</a>
-                        <a href="#contact" class="btn btn-outline">Связаться →</a>
-                    </div>
-                </div>
-                <div class="hero-illustration">
-                    <div class="floating-card">
-                        <div class="code-icon">&lt;/&gt;</div>
-                        <div class="tech-badge">HTML/CSS/JS</div>
-                        <div class="tech-badge">Python / Bot API</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<div class="preloader" id="preloader">
+    <div class="preloader-spinner"></div>
+</div>
 
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Мои работы</h2>
-                    <p>Каждый проект — это решение конкретной задачи и чистый, поддерживаемый код</p>
-                </div>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-img">
-                            <img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=Weatherly+Weather+App" alt="Weatherly погодное приложение">
-                            <span class="project-type">Веб-приложение</span>
-                        </div>
-                        <div class="project-info">
-                            <h3>Weatherly — прогноз погоды</h3>
-                            <p>Интерактивный виджет с определением геолокации, сохранением последнего города и адаптивным дизайном. Работает с OpenWeatherMap API.</p>
-                            <div class="project-tech">
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                                <span>JavaScript (ES6+)</span>
-                                <span>REST API</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://fliperrsv.github.io/weather-app/" target="_blank" class="btn-demo">🔗 Демо</a>
-                                <a href="#" class="btn-details" data-project="weatherly">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<header class="header">
+    <div class="container header-container">
+        <a href="#" class="logo" aria-label="На главную">
+            <i class="fas fa-code"></i> Сергей Резунков
+        </a>
+        
+        <button class="mobile-menu-btn" aria-label="Меню" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
 
-        <section id="about" class="about">
-            <div class="container about-container">
-                <div class="about-photo">
-                    <div class="photo-placeholder">
-                        <span>📸</span>
-                        <!-- Замените на своё фото: <img src="ваше_фото.jpg" alt="Сергей Резунков"> -->
-                    </div>
-                </div>
-                <div class="about-content">
-                    <h2>Обо мне</h2>
-                    <p>Привет! Меня зовут <strong>Сергей Резунков</strong>, я веб-разработчик и создаю сайты/ботов на заказ. Люблю превращать сложные задачи в элегантные и понятные решения.</p>
-                    <p>Мой стек: HTML5, CSS3, адаптивная вёрстка, JavaScript (React — в процессе), Python для Telegram-ботов (aiogram, python-telegram-bot). Постоянно учусь и развиваюсь.</p>
-                    <div class="skills">
-                        <div class="skill-item">HTML/CSS/JS</div>
-                        <div class="skill-item">React (изучаю)</div>
-                        <div class="skill-item">Python / Bot API</div>
-                        <div class="skill-item">Git & GitHub</div>
-                        <div class="skill-item">Адаптивный дизайн</div>
-                        <div class="skill-item">Работа с API</div>
-                    </div>
-                    <div class="about-links">
-                        <a href="#" class="btn-resume" id="resumeBtn">📄 Скачать резюме (PDF)</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Свяжитесь со мной</h2>
-                    <p>Готов обсудить ваш проект или ответить на вопросы</p>
-                </div>
-                <div class="contact-wrapper">
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="Ваше имя" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" rows="4" placeholder="Опишите задачу или вопрос" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Отправить сообщение →</button>
-                        <div id="formStatus" class="form-status"></div>
-                    </form>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <span>📧</span> <a href="mailto:fliperrsv@yandex.ru">fliperrsv@yandex.ru</a>
-                        </div>
-                        <div class="contact-item">
-                            <span>💬</span> <a href="https://t.me/fliperrsv1" target="_blank">Telegram: @fliperrsv1</a>
-                        </div>
-                        <div class="contact-item">
-                            <span>🐙</span> <a href="https://github.com/fliperrsv" target="_blank">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 Сергей Резунков. Все проекты реальны и могут быть продемонстрированы.</p>
-        </div>
-    </footer>
-
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <div id="modalBody"></div>
-        </div>
+        <nav class="nav">
+            <a href="#home" class="nav-link">Главная</a>
+            <a href="#portfolio" class="nav-link">Портфолио</a>
+            <a href="#skills" class="nav-link">Навыки</a>
+            <a href="#about" class="nav-link">Обо мне</a>
+            <a href="#contact" class="nav-link">Контакты</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
     </div>
+</header>
 
-    <script src="script.js"></script>
+<main>
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-tag">Веб-разработчик</div>
+                <h1 class="hero-title">
+                    Создаю <span class="gradient-text">сайты и ботов</span><br>
+                    которые работают на вас
+                </h1>
+                <p class="hero-desc">
+                    Превращаю идеи в современные веб-решения. Адаптивный дизайн, 
+                    чистый код, Telegram-боты под любые задачи. Работаю на результат.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="yearCounter">0</span>
+                        <span class="stat-label">лет в IT</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="projectCounter">0</span>
+                        <span class="stat-label">проектов</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">
+                        <i class="fas fa-arrow-down"></i> Смотреть проекты
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        Связаться <i class="fas fa-paper-plane"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-illustration">
+                <div class="floating-card">
+                    <div class="code-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="tech-stack">
+                        <span>HTML/CSS/JS</span>
+                        <span>React (изучаю)</span>
+                        <span>Python/Bot API</span>
+                        <span>Git & GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-shape">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0L1440 0L1440 120C1440 120 1320 60 1080 60C840 60 720 100 540 100C360 100 240 80 120 80C60 80 30 90 0 100L0 0Z" fill="url(#gradientShape)"/>
+                <defs>
+                    <linearGradient id="gradientShape" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#ff6b4a"/>
+                        <stop offset="100%" stop-color="#ff8a5c"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>Мои работы</h2>
+                <p>Каждый проект — это решение конкретной задачи и чистый, поддерживаемый код</p>
+            </div>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Все проекты</button>
+                <button class="filter-btn" data-filter="web">Веб-сайты</button>
+                <button class="filter-btn" data-filter="bot">Telegram-боты</button>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-category="web">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=Weatherly" alt="Weatherly погодное приложение" loading="lazy">
+                        <span class="project-type">Веб-приложение</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Weatherly — прогноз погоды</h3>
+                        <p>Интерактивный виджет с определением геолокации, сохранением последнего города и адаптивным дизайном. Работает с OpenWeatherMap API.</p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript (ES6+)</span>
+                            <span>REST API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://fliperrsv.github.io/weather-app/" target="_blank" class="btn-demo">
+                                <i class="fas fa-external-link-alt"></i> Демо
+                            </a>
+                            <a href="#" class="btn-details" data-project="weatherly">
+                                <i class="fas fa-info-circle"></i> Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Технологии и инструменты</h2>
+                <p>С чем я работаю и что постоянно изучаю</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-skill="html">
+                            <i class="fab fa-html5"></i> HTML5
+                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
+                        </div>
+                        <div class="skill-item" data-skill="css">
+                            <i class="fab fa-css3-alt"></i> CSS3
+                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
+                        </div>
+                        <div class="skill-item" data-skill="js">
+                            <i class="fab fa-js"></i> JavaScript (ES6+)
+                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
+                        </div>
+                        <div class="skill-item" data-skill="react">
+                            <i class="fab fa-react"></i> React (изучаю)
+                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend & Другое</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-skill="python">
+                            <i class="fab fa-python"></i> Python
+                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
+                        </div>
+                        <div class="skill-item" data-skill="git">
+                            <i class="fab fa-git-alt"></i> Git & GitHub
+                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
+                        </div>
+                        <div class="skill-item" data-skill="api">
+                            <i class="fas fa-plug"></i> REST API
+                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container about-container">
+            <div class="about-photo">
+                <div class="photo-frame">
+                    <!-- ВАШЕ ФОТО: файл лежит в той же папке репозитория -->
+                    <img src="IMG_20240902_110506_091.jpg" alt="Сергей Резунков" id="profileImage" onerror="this.src='https://via.placeholder.com/400x400/2c3e50/ffffff?text=Фото'">
+                </div>
+            </div>
+            <div class="about-content">
+                <h2>Обо мне</h2>
+                <p>Привет! Меня зовут <strong>Сергей Резунков</strong>, я веб-разработчик. Создаю сайты и Telegram-ботов на заказ. Люблю превращать сложные задачи в элегантные и понятные решения.</p>
+                <p>Моя цель — помогать бизнесу расти через качественные цифровые продукты. Постоянно учусь и слежу за современными трендами в веб-разработке.</p>
+                <div class="coding-stats">
+                    <div class="codewars-stats">
+                        <i class="fas fa-code"></i>
+                        <span>Codewars: 4kyu</span>
+                    </div>
+                </div>
+                <div class="about-links">
+                    <a href="#" class="btn-resume" id="resumeBtn">
+                        <i class="fas fa-file-pdf"></i> Скачать резюме (PDF)
+                    </a>
+                    <a href="https://github.com/fliperrsv" target="_blank" class="btn-github">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Свяжитесь со мной</h2>
+                <p>Готов обсудить ваш проект или ответить на вопросы</p>
+            </div>
+            <div class="contact-wrapper">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Ваше имя" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" placeholder="Опишите задачу или вопрос" required></textarea>
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> Отправить сообщение
+                        <span class="btn-loader"></span>
+                    </button>
+                    <div id="formStatus" class="form-status"></div>
+                </form>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:fliperrsv@yandex.ru">fliperrsv@yandex.ru</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-telegram-plane"></i>
+                        <a href="https://t.me/fliperrsv1" target="_blank">Telegram: @fliperrsv1</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/fliperrsv" target="_blank">GitHub</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Москва, Россия</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2025 Сергей Резунков. Все проекты реальны и могут быть продемонстрированы.</p>
+    </div>
+</footer>
+
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
