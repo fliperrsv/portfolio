@@ -56,8 +56,9 @@ document.querySelectorAll('.skill-category').forEach(el => {
     skillObserver.observe(el);
 });
 
-// Анимация счетчиков (новые значения: 2 года, 5 проектов)
+// Анимация счетчиков (ЗАПУСКАЕТСЯ СРАЗУ)
 function animateCounter(element, start, end, duration) {
+    if (!element) return;
     let startTimestamp = null;
     const step = (timestamp) => {
         if (!startTimestamp) startTimestamp = timestamp;
@@ -70,22 +71,19 @@ function animateCounter(element, start, end, duration) {
     window.requestAnimationFrame(step);
 }
 
+// Находим элементы и запускаем анимацию мгновенно
 const yearCounter = document.getElementById('yearCounter');
 const projectCounter = document.getElementById('projectCounter');
 
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounter(yearCounter, 0, 2, 2000);
-            animateCounter(projectCounter, 0, 5, 2000);
-            counterObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
 if (yearCounter && projectCounter) {
-    counterObserver.observe(yearCounter);
+    // Запускаем анимацию, как только страница загрузится
+    window.addEventListener('DOMContentLoaded', () => {
+        animateCounter(yearCounter, 0, 2, 2000);
+        animateCounter(projectCounter, 0, 5, 2000);
+    });
 }
+
+// ... (остальная часть вашего script.js без изменений) ...
 
 // Тёмная/светлая тема
 const themeToggle = document.getElementById('themeToggle');
@@ -111,7 +109,6 @@ function setTheme(theme) {
 
 const savedTheme = localStorage.getItem('theme');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
 if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
     setTheme('dark');
 }
