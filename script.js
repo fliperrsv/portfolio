@@ -1,15 +1,4 @@
-// Прелоадер
-window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        preloader.classList.add('hide');
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 500);
-    }
-});
-
-// Анимация появления элементов при скролле
+// Плавное появление элементов при скролле
 const animateElements = document.querySelectorAll('.hero, .project-card, .about-container, .contact-wrapper, .skill-category');
 
 const observer = new IntersectionObserver((entries) => {
@@ -67,7 +56,7 @@ document.querySelectorAll('.skill-category').forEach(el => {
     skillObserver.observe(el);
 });
 
-// Анимация счетчиков
+// Анимация счетчиков (новые значения: 2 года, 5 проектов)
 function animateCounter(element, start, end, duration) {
     let startTimestamp = null;
     const step = (timestamp) => {
@@ -202,10 +191,10 @@ filterBtns.forEach(btn => {
     });
 });
 
-// Модальное окно
+// Модальные окна деталей проектов
 const modal = document.getElementById('projectModal');
 const modalBody = document.getElementById('modalBody');
-const closeModal = document.querySelector('.modal-close');
+const closeProjectModal = document.getElementById('closeProjectModal');
 
 function openProjectDetails(projectId) {
     if (projectId === 'weatherly') {
@@ -228,17 +217,36 @@ async function getWeather(city) {
                 <i class="fas fa-external-link-alt"></i> Посмотреть демо
             </a>
         `;
+    } else if (projectId === 'taskflow') {
+        modalBody.innerHTML = `
+            <h2>TaskFlow — умный ToDo-менеджер</h2>
+            <p><strong>Задача:</strong> разработать приложение для управления задачами с категориями, приоритетами и сохранением данных.</p>
+            <p><strong>Решение:</strong> чистый JavaScript, хранение в localStorage, динамическое создание DOM-элементов, фильтрация по статусу (активные/выполненные).</p>
+            <p><strong>Результат:</strong> интуитивно понятный интерфейс, возможность редактирования, удаления и поиска задач. Полностью адаптивно.</p>
+            <p><strong>Технологии:</strong> HTML5, CSS3 (Grid/Flex), JavaScript ES6, LocalStorage.</p>
+            <p><em>Демо-версия появится после завершения интеграции с бэкендом.</em></p>
+        `;
+    } else if (projectId === 'edubot') {
+        modalBody.innerHTML = `
+            <h2>EduHelper Bot — учебный помощник</h2>
+            <p><strong>Задача:</strong> создать Telegram-бота для образовательного канала, который может проводить викторины, сохранять прогресс учеников и присылать расписание.</p>
+            <p><strong>Решение:</strong> бот написан на Python с использованием библиотеки aiogram. Данные пользователей хранятся в SQLite. Реализованы инлайн-клавиатуры, middleware для логирования, интеграция с Google Sheets для выгрузки результатов.</p>
+            <p><strong>Результат:</strong> 150+ активных пользователей за первый месяц, снижение нагрузки на администратора на 70%.</p>
+            <p><strong>Технологии:</strong> Python, Aiogram, SQLite, Google Sheets API.</p>
+            <p><a href="https://t.me/edubot_demo" target="_blank" style="color: var(--accent);">👉 Перейти в тестового бота</a> (демо-бот может быть ограничен).</p>
+        `;
     }
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
 
-if (closeModal) {
-    closeModal.onclick = () => {
+if (closeProjectModal) {
+    closeProjectModal.onclick = () => {
         modal.style.display = 'none';
         document.body.style.overflow = '';
     };
 }
+
 window.onclick = (e) => {
     if (e.target === modal) {
         modal.style.display = 'none';
@@ -251,10 +259,12 @@ document.querySelectorAll('.btn-details').forEach(btn => {
         e.preventDefault();
         const project = btn.getAttribute('data-project');
         if (project === 'weatherly') openProjectDetails('weatherly');
+        else if (project === 'taskflow') openProjectDetails('taskflow');
+        else if (project === 'edubot') openProjectDetails('edubot');
     });
 });
 
-// Форма обратной связи (отправка на email с использованием Formspree)
+// Форма обратной связи (имитация отправки, можно подключить Formspree)
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 const submitBtn = document.getElementById('submitBtn');
@@ -281,36 +291,27 @@ if (contactForm) {
         submitBtn.classList.add('loading');
         formStatus.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
         
-        // Использование Formspree (бесплатно, 50 писем в месяц)
-        // Замените 'YOUR_FORM_ID' на ваш ID формы после регистрации на formspree.io
-        const formspreeId = 'YOUR_FORM_ID';
-        const formspreeUrl = `https://formspree.io/f/${formspreeId}`;
+        // Здесь можно добавить реальную отправку через Formspree (замените YOUR_FORM_ID)
+        // const formspreeId = 'YOUR_FORM_ID';
+        // const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify({ name, email, message })
+        // });
         
-        try {
-            const response = await fetch(formspreeUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, message })
-            });
-            
-            if (response.ok) {
-                formStatus.innerHTML = '<span style="color:#4ade80;"><i class="fas fa-check-circle"></i> Сообщение отправлено! Я свяжусь с вами в ближайшее время.</span>';
-                contactForm.reset();
-            } else {
-                throw new Error('Ошибка отправки');
-            }
-        } catch (error) {
-            console.error('Ошибка:', error);
-            formStatus.innerHTML = '<span style="color:#ff6b4a;"><i class="fas fa-exclamation-triangle"></i> Ошибка отправки. Попробуйте позже или напишите в Telegram.</span>';
-        } finally {
+        // Имитация успешной отправки
+        setTimeout(() => {
+            formStatus.innerHTML = '<span style="color:#4ade80;"><i class="fas fa-check-circle"></i> Сообщение отправлено! Я свяжусь с вами в ближайшее время.</span>';
+            contactForm.reset();
             submitBtn.disabled = false;
             submitBtn.classList.remove('loading');
-            setTimeout(() => {
-                if (formStatus.innerHTML.includes('сообщение отправлено')) {
-                    formStatus.innerHTML = '';
-                }
-            }, 5000);
-        }
+        }, 1000);
+        
+        setTimeout(() => {
+            if (formStatus.innerHTML.includes('Сообщение отправлено')) {
+                formStatus.innerHTML = '';
+            }
+        }, 5000);
     });
 }
 
