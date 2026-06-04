@@ -88,4 +88,4 @@ window.addEventListener('scroll', () => {
 });
 
 // Резюме
-document.getElementById('resumeBtn')?.addEventListener('click', (e) => { e.preventDefault(); alert('Резюме будет добавлено позже. Запросите в Telegram.'); });
+//document.getElementById('resumeBtn')?.addEventListener('click', (e) => { e.preventDefault(); alert('Резюме будет добавлено позже. Запросите в Telegram.'); });
