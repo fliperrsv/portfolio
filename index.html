@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Сергей Резунков | Веб-разработчик</title>
-    <meta name="description" content="Портфолио веб-разработчика. Создаю сайты и Telegram-ботов, которые приносят прибыль бизнесу.">
+    <meta name="description" content="Портфолио веб-разработчика. Создаю сайты и Telegram-ботов.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -15,23 +15,15 @@
 
 <header class="header">
     <div class="container header-container">
-        <a href="#" class="logo" aria-label="На главную">
-            <i class="fas fa-code"></i> Сергей Резунков
-        </a>
-        
-        <button class="mobile-menu-btn" aria-label="Меню" aria-expanded="false">
-            <i class="fas fa-bars"></i>
-        </button>
-
+        <a href="#" class="logo"><i class="fas fa-code"></i> Сергей Резунков</a>
+        <button class="mobile-menu-btn" aria-label="Меню"><i class="fas fa-bars"></i></button>
         <nav class="nav">
             <a href="#home" class="nav-link">Главная</a>
             <a href="#portfolio" class="nav-link">Портфолио</a>
             <a href="#skills" class="nav-link">Навыки</a>
             <a href="#about" class="nav-link">Обо мне</a>
             <a href="#contact" class="nav-link">Контакты</a>
-            <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
-                <i class="fas fa-moon"></i>
-            </button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"><i class="fas fa-moon"></i></button>
         </nav>
     </div>
 </header>
@@ -41,153 +33,73 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <div class="hero-tag">Веб-разработчик</div>
-                <h1 class="hero-title">
-                    Создаю <span class="gradient-text">сайты и ботов</span><br>
-                    которые работают на вас
-                </h1>
-                <p class="hero-desc">
-                    Превращаю идеи в современные веб-решения. Адаптивный дизайн, 
-                    чистый код, Telegram-боты под любые задачи. Работаю на результат.
-                </p>
+                <h1 class="hero-title">Создаю <span class="gradient-text">сайты и ботов</span><br>которые работают на вас</h1>
+                <p class="hero-desc">Адаптивный дизайн, чистый код, Telegram-боты под любые задачи.</p>
                 <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number" id="yearCounter">5+</span>
-                        <span class="stat-label">лет в IT</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number" id="projectCounter">10+</span>
-                        <span class="stat-label">проектов</span>
-                    </div>
+                    <div class="stat"><span class="stat-number">2</span><span class="stat-label">года в IT</span></div>
+                    <div class="stat"><span class="stat-number">5</span><span class="stat-label">проектов</span></div>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary">
-                        <i class="fas fa-arrow-down"></i> Смотреть проекты
-                    </a>
-                    <a href="#contact" class="btn btn-outline">
-                        Связаться <i class="fas fa-paper-plane"></i>
-                    </a>
+                    <a href="#portfolio" class="btn btn-primary"><i class="fas fa-arrow-down"></i> Смотреть проекты</a>
+                    <a href="#contact" class="btn btn-outline">Связаться <i class="fas fa-paper-plane"></i></a>
                 </div>
             </div>
             <div class="hero-illustration">
                 <div class="floating-card">
-                    <div class="code-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
+                    <div class="code-icon"><i class="fas fa-code"></i></div>
                     <div class="tech-stack">
-                        <span>HTML/CSS/JS</span>
-                        <span>React (изучаю)</span>
-                        <span>Python/Bot API</span>
-                        <span>Git & GitHub</span>
+                        <span>HTML/CSS/JS</span><span>React (изучаю)</span><span>Python/Bot API</span><span>Git & GitHub</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="hero-shape">
-            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 0L1440 0L1440 120C1440 120 1320 60 1080 60C840 60 720 100 540 100C360 100 240 80 120 80C60 80 30 90 0 100L0 0Z" fill="url(#gradientShape)"/>
-                <defs>
-                    <linearGradient id="gradientShape" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stop-color="#ff6b4a"/>
-                        <stop offset="100%" stop-color="#ff8a5c"/>
-                    </linearGradient>
-                </defs>
-            </svg>
-        </div>
+        <div class="hero-shape"><svg viewBox="0 0 1440 120"><path d="M0 0L1440 0L1440 120C1440 120 1320 60 1080 60C840 60 720 100 540 100C360 100 240 80 120 80C60 80 30 90 0 100L0 0Z" fill="url(#gradientShape)"/><defs><linearGradient id="gradientShape" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ff6b4a"/><stop offset="100%" stop-color="#ff8a5c"/></linearGradient></defs></svg></div>
     </section>
 
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <div class="section-header">
-                <h2>Мои работы</h2>
-                <p>Каждый проект — это решение конкретной задачи и чистый, поддерживаемый код</p>
-            </div>
-            
+            <div class="section-header"><h2>Мои работы</h2><p>Каждый проект — решение конкретной задачи и чистый код</p></div>
             <div class="portfolio-filters">
                 <button class="filter-btn active" data-filter="all">Все проекты</button>
                 <button class="filter-btn" data-filter="web">Веб-сайты</button>
                 <button class="filter-btn" data-filter="bot">Telegram-боты</button>
             </div>
-            
             <div class="projects-grid">
-                <!-- Проект 1: Weatherly -->
+                <!-- Weatherly -->
                 <div class="project-card" data-category="web">
                     <div class="project-img">
                         <div class="screenshot-gallery">
-                            <img src="Screenshot_20260603-230956.jpg" alt="Экран погоды 1" class="gallery-thumb" onclick="openImageModal(this.src)">
-                            <img src="Screenshot_20260603-231025.jpg" alt="Экран погоды 2" class="gallery-thumb" onclick="openImageModal(this.src)">
-                            <img src="Screenshot_20260603-231100.jpg" alt="Экран погоды 3" class="gallery-thumb" onclick="openImageModal(this.src)">
+                            <img src="Screenshot_20260603-230956.jpg" alt="скриншот 1" class="gallery-thumb" onclick="openImageModal(this.src)" onerror="this.src='https://via.placeholder.com/200x150?text=скриншот'">
+                            <img src="Screenshot_20260603-231025.jpg" alt="скриншот 2" class="gallery-thumb" onclick="openImageModal(this.src)" onerror="this.src='https://via.placeholder.com/200x150?text=скриншот'">
+                            <img src="Screenshot_20260603-231100.jpg" alt="скриншот 3" class="gallery-thumb" onclick="openImageModal(this.src)" onerror="this.src='https://via.placeholder.com/200x150?text=скриншот'">
                         </div>
                         <span class="project-type">Веб-приложение</span>
                     </div>
                     <div class="project-info">
                         <h3>Weatherly — прогноз погоды</h3>
-                        <p>Интерактивный виджет с определением геолокации, сохранением последнего города и адаптивным дизайном. Работает с OpenWeatherMap API.</p>
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript (ES6+)</span>
-                            <span>REST API</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://fliperrsv.github.io/weather-app/" target="_blank" class="btn-demo">
-                                <i class="fas fa-external-link-alt"></i> Демо
-                            </a>
-                            <a href="#" class="btn-details" data-project="weatherly">
-                                <i class="fas fa-info-circle"></i> Подробнее
-                            </a>
-                        </div>
+                        <p>Виджет с геолокацией, сохранением города, адаптивом. OpenWeatherMap API.</p>
+                        <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JS</span><span>REST API</span></div>
+                        <div class="project-links"><a href="https://fliperrsv.github.io/weather-app/" target="_blank" class="btn-demo"><i class="fas fa-external-link-alt"></i> Демо</a><a href="#" class="btn-details" data-project="weatherly"><i class="fas fa-info-circle"></i> Подробнее</a></div>
                     </div>
                 </div>
-
-                <!-- Проект 2: ToDo-менеджер (новый) -->
+                <!-- TaskFlow -->
                 <div class="project-card" data-category="web">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=TaskFlow+Preview" alt="TaskFlow ToDo-менеджер" loading="lazy">
-                        <span class="project-type">Веб-приложение</span>
-                    </div>
+                    <div class="project-img"><img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=TaskFlow" alt="TaskFlow"><span class="project-type">Веб-приложение</span></div>
                     <div class="project-info">
-                        <h3>TaskFlow — умный ToDo-менеджер</h3>
-                        <p>Приложение для управления задачами с категориями, приоритетами и сохранением в localStorage. Фильтрация по статусу, адаптивный интерфейс.</p>
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                            <span>LocalStorage</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn-demo disabled" onclick="alert('Демо скоро будет доступно')">
-                                <i class="fas fa-external-link-alt"></i> Демо
-                            </a>
-                            <a href="#" class="btn-details" data-project="taskflow">
-                                <i class="fas fa-info-circle"></i> Подробнее
-                            </a>
-                        </div>
+                        <h3>TaskFlow — ToDo-менеджер</h3>
+                        <p>Управление задачами, категории, приоритеты, сохранение в localStorage.</p>
+                        <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JS</span><span>LocalStorage</span></div>
+                        <div class="project-links"><a href="#" class="btn-demo disabled" onclick="alert('Демо скоро')">Демо</a><a href="#" class="btn-details" data-project="taskflow">Подробнее</a></div>
                     </div>
                 </div>
-
-                <!-- Проект 3: Telegram-бот (новый) -->
+                <!-- EduHelper Bot -->
                 <div class="project-card" data-category="bot">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=Bot+Preview" alt="Telegram-бот" loading="lazy">
-                        <span class="project-type">Telegram-бот</span>
-                    </div>
+                    <div class="project-img"><img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=Telegram+Bot" alt="Бот"><span class="project-type">Telegram-бот</span></div>
                     <div class="project-info">
-                        <h3>EduHelper Bot — учебный помощник</h3>
-                        <p>Telegram-бот с инлайн-клавиатурами, сохранением прогресса и отправкой напоминаний. Поддерживает викторины, загрузку файлов и интеграцию с Google Sheets.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Aiogram</span>
-                            <span>SQLite</span>
-                            <span>Google API</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn-demo disabled" onclick="alert('Бот в разработке, пришлю ссылку позже')">
-                                <i class="fab fa-telegram"></i> Тест-бот
-                            </a>
-                            <a href="#" class="btn-details" data-project="edubot">
-                                <i class="fas fa-info-circle"></i> Подробнее
-                            </a>
-                        </div>
+                        <h3>EduHelper Bot</h3>
+                        <p>Образовательный бот с викторинами, расписанием, интеграцией с Google Sheets.</p>
+                        <div class="project-tech"><span>Python</span><span>Aiogram</span><span>SQLite</span></div>
+                        <div class="project-links"><a href="#" class="btn-demo disabled" onclick="alert('Бот в разработке')">Тест-бот</a><a href="#" class="btn-details" data-project="edubot">Подробнее</a></div>
                     </div>
                 </div>
             </div>
@@ -196,47 +108,21 @@
 
     <section id="skills" class="skills-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Технологии и инструменты</h2>
-                <p>С чем я работаю и что постоянно изучаю</p>
-            </div>
+            <div class="section-header"><h2>Технологии и инструменты</h2><p>С чем я работаю</p></div>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Frontend</h3>
+                <div class="skill-category"><h3>Frontend</h3>
                     <div class="skill-items">
-                        <div class="skill-item" data-skill="html">
-                            <i class="fab fa-html5"></i> HTML5
-                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="css">
-                            <i class="fab fa-css3-alt"></i> CSS3
-                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="js">
-                            <i class="fab fa-js"></i> JavaScript (ES6+)
-                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="react">
-                            <i class="fab fa-react"></i> React (изучаю)
-                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
-                        </div>
+                        <div class="skill-item" data-skill="html"><i class="fab fa-html5"></i> HTML5<div class="skill-progress"><div class="skill-progress-bar" style="width: 90%;"></div></div></div>
+                        <div class="skill-item" data-skill="css"><i class="fab fa-css3-alt"></i> CSS3<div class="skill-progress"><div class="skill-progress-bar" style="width: 90%;"></div></div></div>
+                        <div class="skill-item" data-skill="js"><i class="fab fa-js"></i> JavaScript (ES6+)<div class="skill-progress"><div class="skill-progress-bar" style="width: 75%;"></div></div></div>
+                        <div class="skill-item" data-skill="react"><i class="fab fa-react"></i> React (изучаю)<div class="skill-progress"><div class="skill-progress-bar" style="width: 50%;"></div></div></div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Backend & Другое</h3>
+                <div class="skill-category"><h3>Backend & Другое</h3>
                     <div class="skill-items">
-                        <div class="skill-item" data-skill="python">
-                            <i class="fab fa-python"></i> Python
-                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="git">
-                            <i class="fab fa-git-alt"></i> Git & GitHub
-                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="api">
-                            <i class="fas fa-plug"></i> REST API
-                            <div class="skill-progress"><div class="skill-progress-bar" style="width: 0%;"></div></div>
-                        </div>
+                        <div class="skill-item" data-skill="python"><i class="fab fa-python"></i> Python<div class="skill-progress"><div class="skill-progress-bar" style="width: 70%;"></div></div></div>
+                        <div class="skill-item" data-skill="git"><i class="fab fa-git-alt"></i> Git & GitHub<div class="skill-progress"><div class="skill-progress-bar" style="width: 80%;"></div></div></div>
+                        <div class="skill-item" data-skill="api"><i class="fas fa-plug"></i> REST API<div class="skill-progress"><div class="skill-progress-bar" style="width: 75%;"></div></div></div>
                     </div>
                 </div>
             </div>
@@ -245,134 +131,48 @@
 
     <section id="about" class="about">
         <div class="container about-container">
-            <div class="about-photo">
-                <div class="photo-frame">
-                    <img src="IMG_20240902_110506_091.jpg" alt="Сергей Резунков" onerror="this.src='https://via.placeholder.com/400x400/2c3e50/ffffff?text=Фото'">
-                </div>
-            </div>
+            <div class="about-photo"><div class="photo-frame"><img src="IMG_20240902_110506_091.jpg" alt="Сергей Резунков" onerror="this.src='https://via.placeholder.com/400x400?text=Фото'"></div></div>
             <div class="about-content">
                 <h2>Обо мне</h2>
-                <p>Привет! Меня зовут <strong>Сергей Резунков</strong>, я веб-разработчик. Создаю сайты и Telegram-ботов на заказ. Люблю превращать сложные задачи в элегантные и понятные решения.</p>
-                <p>Моя цель — помогать бизнесу расти через качественные цифровые продукты. Постоянно учусь и слежу за современными трендами в веб-разработке.</p>
-                <div class="coding-stats">
-                    <div class="codewars-stats">
-                        <i class="fas fa-code"></i>
-                        <span>Codewars: 4kyu</span>
-                    </div>
-                </div>
-                <div class="about-links">
-                    <a href="#" class="btn-resume" id="resumeBtn">
-                        <i class="fas fa-file-pdf"></i> Скачать резюме (PDF)
-                    </a>
-                    <a href="https://github.com/fliperrsv" target="_blank" class="btn-github">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </div>
+                <p>Привет! Меня зовут <strong>Сергей Резунков</strong>, я веб-разработчик. Создаю сайты и Telegram-ботов на заказ.</p>
+                <p>Моя цель — помогать бизнесу расти через качественные цифровые продукты. Постоянно учусь.</p>
+                <div class="coding-stats"><div class="codewars-stats"><i class="fas fa-code"></i> Codewars: 4kyu</div></div>
+                <div class="about-links"><a href="#" class="btn-resume" id="resumeBtn"><i class="fas fa-file-pdf"></i> Скачать резюме</a><a href="https://github.com/fliperrsv" target="_blank" class="btn-github"><i class="fab fa-github"></i> GitHub</a></div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-header">
-                <h2>Свяжитесь со мной</h2>
-                <p>Готов обсудить ваш проект или ответить на вопросы</p>
-            </div>
+            <div class="section-header"><h2>Свяжитесь со мной</h2><p>Готов обсудить ваш проект</p></div>
             <div class="contact-wrapper">
                 <form id="contactForm" class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="Ваше имя" required>
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="Email" required>
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" rows="4" placeholder="Опишите задачу или вопрос" required></textarea>
-                        <i class="fas fa-pencil-alt"></i>
-                    </div>
-                    <button type="submit" class="btn btn-primary" id="submitBtn">
-                        <i class="fas fa-paper-plane"></i> Отправить сообщение
-                        <span class="btn-loader"></span>
-                    </button>
+                    <div class="form-group"><input type="text" id="name" placeholder="Ваше имя" required><i class="fas fa-user"></i></div>
+                    <div class="form-group"><input type="email" id="email" placeholder="Email" required><i class="fas fa-envelope"></i></div>
+                    <div class="form-group"><textarea id="message" rows="4" placeholder="Опишите задачу" required></textarea><i class="fas fa-pencil-alt"></i></div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Отправить</button>
                     <div id="formStatus" class="form-status"></div>
                 </form>
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:fliperrsv@yandex.ru">fliperrsv@yandex.ru</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-telegram-plane"></i>
-                        <a href="https://t.me/fliperrsv1" target="_blank">Telegram: @fliperrsv1</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <a href="https://github.com/fliperrsv" target="_blank">GitHub</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Москва, Россия</span>
-                    </div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:fliperrsv@yandex.ru">fliperrsv@yandex.ru</a></div>
+                    <div class="contact-item"><i class="fab fa-telegram-plane"></i><a href="https://t.me/fliperrsv1" target="_blank">Telegram: @fliperrsv1</a></div>
+                    <div class="contact-item"><i class="fab fa-github"></i><a href="https://github.com/fliperrsv" target="_blank">GitHub</a></div>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Москва, Россия</span></div>
                 </div>
             </div>
         </div>
     </section>
 </main>
+<footer class="footer"><div class="container"><p>© 2025 Сергей Резунков</p></div></footer>
 
-<footer class="footer">
-    <div class="container">
-        <p>© 2025 Сергей Резунков. Все проекты реальны и могут быть продемонстрированы.</p>
-    </div>
-</footer>
-
-<!-- Модальное окно для изображений (увеличение скриншотов) -->
-<div id="imageModal" class="modal">
-    <div class="modal-content" style="max-width: 90%; text-align: center;">
-        <span class="modal-close" id="closeImageModal">&times;</span>
-        <img id="modalImage" src="" alt="Увеличенный скриншот" style="max-width: 100%; max-height: 80vh; border-radius: 16px;">
-    </div>
-</div>
-
-<!-- Модальное окно для подробного описания проекта -->
-<div id="projectModal" class="modal">
-    <div class="modal-content">
-        <span class="modal-close" id="closeProjectModal">&times;</span>
-        <div id="modalBody"></div>
-    </div>
-</div>
+<div id="imageModal" class="modal"><div class="modal-content" style="max-width:90%; text-align:center"><span class="modal-close" id="closeImageModal">&times;</span><img id="modalImage" src="" style="max-width:100%; max-height:80vh; border-radius:16px"></div></div>
+<div id="projectModal" class="modal"><div class="modal-content"><span class="modal-close" id="closeProjectModal">&times;</span><div id="modalBody"></div></div></div>
 
 <script src="script.js"></script>
 <script>
-    // Функция для открытия модального окна с увеличенным изображением
-    function openImageModal(src) {
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        modal.style.display = 'flex';
-        modalImg.src = src;
-        document.body.style.overflow = 'hidden';
-    }
-
-    // Закрытие модального окна изображений
-    const closeImageModal = document.getElementById('closeImageModal');
-    if (closeImageModal) {
-        closeImageModal.onclick = function() {
-            document.getElementById('imageModal').style.display = 'none';
-            document.body.style.overflow = '';
-        };
-    }
-
-    // Также закрываем по клику вне изображения
-    const imageModal = document.getElementById('imageModal');
-    if (imageModal) {
-        imageModal.onclick = function(e) {
-            if (e.target === imageModal) {
-                imageModal.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        };
-    }
+    function openImageModal(src) { let modal = document.getElementById('imageModal'), img = document.getElementById('modalImage'); modal.style.display = 'flex'; img.src = src; document.body.style.overflow = 'hidden'; }
+    document.getElementById('closeImageModal')?.addEventListener('click', function() { document.getElementById('imageModal').style.display = 'none'; document.body.style.overflow = ''; });
+    document.getElementById('imageModal')?.addEventListener('click', function(e) { if(e.target === this) { this.style.display = 'none'; document.body.style.overflow = ''; } });
 </script>
 </body>
 </html>
