@@ -17,13 +17,29 @@ const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 if (savedTheme === 'dark' || (!savedTheme && prefersDark)) setTheme('dark');
 if (themeToggle) themeToggle.addEventListener('click', () => setTheme(document.documentElement.hasAttribute('data-theme') ? 'light' : 'dark'));
 
-// Мобильное меню
+// Мобильное меню (исправлено)
 const mobileBtn = document.querySelector('.mobile-menu-btn');
 const nav = document.querySelector('.nav');
 if (mobileBtn && nav) {
-    mobileBtn.addEventListener('click', (e) => { e.stopPropagation(); nav.classList.toggle('active'); const icon = mobileBtn.querySelector('i'); if (icon) icon.classList.toggle('fa-times'); });
-    document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', () => { nav.classList.remove('active'); if (mobileBtn.querySelector('i')) mobileBtn.querySelector('i').classList.add('fa-bars'); }));
-    document.addEventListener('click', (e) => { if (!nav.contains(e.target) && !mobileBtn.contains(e.target) && nav.classList.contains('active')) nav.classList.remove('active'); });
+    mobileBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nav.classList.toggle('active');
+        const icon = mobileBtn.querySelector('i');
+        if (icon) icon.classList.toggle('fa-times');
+    });
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+            if (mobileBtn.querySelector('i')) mobileBtn.querySelector('i').classList.add('fa-bars');
+        });
+    });
+    document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target) && !mobileBtn.contains(e.target) && nav.classList.contains('active')) {
+            nav.classList.remove('active');
+            const icon = mobileBtn.querySelector('i');
+            if (icon) { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+        }
+    });
 }
 
 // Фильтрация проектов
@@ -53,15 +69,14 @@ const modalBody = document.getElementById('modalBody');
 const closeModal = document.getElementById('closeProjectModal');
 function openProjectDetails(id) {
     if (id === 'weatherly') modalBody.innerHTML = `<h2>Weatherly — прогноз погоды</h2><p><strong>Задача:</strong> виджет погоды с геолокацией.</p><p><strong>Решение:</strong> OpenWeatherMap API, Fetch, localStorage.</p><p><strong>Результат:</strong> быстрый отклик, поддержка тысяч городов.</p><a href="https://fliperrsv.github.io/weather-app/" target="_blank" class="btn-demo">Посмотреть демо</a>`;
-    else if (id === 'taskflow') modalBody.innerHTML = `<h2>TaskFlow — ToDo-менеджер</h2><p>Управление задачами, приоритеты, сохранение в localStorage. Адаптивный интерфейс.</p><p>Технологии: HTML, CSS, JS, LocalStorage.</p><p><em>Демо скоро появится.</em></p>`;
-    else if (id === 'edubot') modalBody.innerHTML = `<h2>EduHelper Bot</h2><p>Telegram-бот на Python (aiogram) с викторинами, расписанием, интеграцией Google Sheets.</p><p><a href="https://t.me/edubot_demo" target="_blank" style="color:var(--accent)">👉 Тестовый бот</a></p>`;
+    else if (id === 'taskflow') modalBody.innerHTML = `<h2>TaskFlow — ToDo-менеджер</h2><p>Управление задачами, приоритеты, сохранение в localStorage. Адаптивный интерфейс.</p><p>Технологии: HTML, CSS, JS, LocalStorage.</p><a href="https://fliperrsv.github.io/taskflow/" target="_blank" class="btn-demo">Открыть приложение →</a>`;
     modal.style.display = 'flex'; document.body.style.overflow = 'hidden';
 }
 if (closeModal) closeModal.onclick = () => { modal.style.display = 'none'; document.body.style.overflow = ''; };
 window.onclick = (e) => { if (e.target === modal) { modal.style.display = 'none'; document.body.style.overflow = ''; } };
 document.querySelectorAll('.btn-details').forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); openProjectDetails(btn.dataset.project); }));
 
-// Форма (имитация)
+// Форма обратной связи (имитация)
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 if (contactForm) {
@@ -78,7 +93,7 @@ if (contactForm) {
     });
 }
 
-// Скрытие хедера
+// Скрытие хедера при скролле
 let lastScroll = 0;
 const header = document.querySelector('.header');
 window.addEventListener('scroll', () => {
