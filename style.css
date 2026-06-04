@@ -878,3 +878,10 @@ body {
         width: calc(33.33% - 4px);
     }
 }
+[data-skill="html"] .skill-progress-bar { width: 90%; }
+[data-skill="css"] .skill-progress-bar { width: 90%; }
+[data-skill="js"] .skill-progress-bar { width: 75%; }
+[data-skill="react"] .skill-progress-bar { width: 50%; }
+[data-skill="python"] .skill-progress-bar { width: 70%; }
+[data-skill="git"] .skill-progress-bar { width: 80%; }
+[data-skill="api"] .skill-progress-bar { width: 75%; }
