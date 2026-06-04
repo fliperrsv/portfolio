@@ -145,12 +145,24 @@
         <div class="container">
             <div class="section-header"><h2>Свяжитесь со мной</h2><p>Готов обсудить ваш проект</p></div>
             <div class="contact-wrapper">
-                <form id="contactForm" class="contact-form">
-                    <div class="form-group"><input type="text" id="name" placeholder="Ваше имя" required><i class="fas fa-user"></i></div>
-                    <div class="form-group"><input type="email" id="email" placeholder="Email" required><i class="fas fa-envelope"></i></div>
-                    <div class="form-group"><textarea id="message" rows="4" placeholder="Опишите задачу" required></textarea><i class="fas fa-pencil-alt"></i></div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Отправить</button>
-                    <div id="formStatus" class="form-status"></div>
+                <form id="my-form" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Ваше имя" required data-fs-field>
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email" required data-fs-field>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="4" placeholder="Опишите задачу или вопрос" required data-fs-field></textarea>
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-fs-submit-btn>
+                        <i class="fas fa-paper-plane"></i> Отправить сообщение
+                    </button>
+                    <div data-fs-success class="form-status" style="color: #4ade80; margin-top: 12px;"></div>
+                    <div data-fs-error class="form-status" style="color: #ff6b4a; margin-top: 12px;"></div>
                 </form>
                 <div class="contact-info">
                     <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:fliperrsv@yandex.ru">fliperrsv@yandex.ru</a></div>
@@ -172,6 +184,13 @@
     function openImageModal(src) { let modal = document.getElementById('imageModal'), img = document.getElementById('modalImage'); modal.style.display = 'flex'; img.src = src; document.body.style.overflow = 'hidden'; }
     document.getElementById('closeImageModal')?.addEventListener('click', function() { document.getElementById('imageModal').style.display = 'none'; document.body.style.overflow = ''; });
     document.getElementById('imageModal')?.addEventListener('click', function(e) { if(e.target === this) { this.style.display = 'none'; document.body.style.overflow = ''; } });
+</script>
+
+<!-- Formspree AJAX integration -->
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+<script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#my-form', formId: 'xvznolvo' });
 </script>
 </body>
 </html>
