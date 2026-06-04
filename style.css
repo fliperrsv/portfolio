@@ -79,8 +79,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-primary); color: v
 .project-card { background: var(--bg-card); border-radius: 24px; overflow: hidden; border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s; }
 .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .project-img { position: relative; }
-.screenshot-gallery { display: flex; gap: 8px; padding: 12px; background: rgba(0,0,0,0.3); justify-content: center; }
-.gallery-thumb { width: calc(33.33% - 6px); border-radius: 12px; cursor: pointer; transition: transform 0.2s; border: 2px solid transparent; }
+.screenshot-gallery { display: flex; gap: 8px; padding: 12px; background: rgba(0,0,0,0.3); justify-content: center; flex-wrap: wrap; }
+.gallery-thumb { width: calc(25% - 6px); border-radius: 12px; cursor: pointer; transition: transform 0.2s; border: 2px solid transparent; }
 .gallery-thumb:hover { transform: scale(1.05); border-color: var(--accent); }
 .project-type { position: absolute; top: 16px; left: 16px; background: var(--accent); padding: 4px 12px; border-radius: 40px; font-size: 0.75rem; font-weight: 600; color: white; z-index: 2; }
 .project-info { padding: 24px; }
@@ -150,4 +150,6 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-primary); color: v
     .section-header h2 { font-size: 1.75rem; }
     .portfolio-filters { gap: 8px; }
     .filter-btn { padding: 6px 16px; font-size: 0.875rem; }
+    .screenshot-gallery { gap: 6px; }
+    .gallery-thumb { width: calc(25% - 4px); }
 }
