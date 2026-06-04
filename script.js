@@ -17,7 +17,7 @@ const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 if (savedTheme === 'dark' || (!savedTheme && prefersDark)) setTheme('dark');
 if (themeToggle) themeToggle.addEventListener('click', () => setTheme(document.documentElement.hasAttribute('data-theme') ? 'light' : 'dark'));
 
-// Мобильное меню (исправлено)
+// Мобильное меню
 const mobileBtn = document.querySelector('.mobile-menu-btn');
 const nav = document.querySelector('.nav');
 if (mobileBtn && nav) {
@@ -75,23 +75,6 @@ function openProjectDetails(id) {
 if (closeModal) closeModal.onclick = () => { modal.style.display = 'none'; document.body.style.overflow = ''; };
 window.onclick = (e) => { if (e.target === modal) { modal.style.display = 'none'; document.body.style.overflow = ''; } };
 document.querySelectorAll('.btn-details').forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); openProjectDetails(btn.dataset.project); }));
-
-// Форма обратной связи (имитация)
-const contactForm = document.getElementById('contactForm');
-const formStatus = document.getElementById('formStatus');
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-        if (!name || !email || !message) { formStatus.innerHTML = '<span style="color:#ff6b4a;">Заполните все поля</span>'; return; }
-        if (!/^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/.test(email)) { formStatus.innerHTML = '<span style="color:#ff6b4a;">Введите корректный email</span>'; return; }
-        formStatus.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
-        setTimeout(() => { formStatus.innerHTML = '<span style="color:#4ade80;">Сообщение отправлено! Я свяжусь с вами.</span>'; contactForm.reset(); }, 1000);
-        setTimeout(() => { if (formStatus.innerHTML.includes('Сообщение отправлено')) formStatus.innerHTML = ''; }, 5000);
-    });
-}
 
 // Скрытие хедера при скролле
 let lastScroll = 0;
