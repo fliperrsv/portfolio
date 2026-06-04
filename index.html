@@ -23,7 +23,7 @@
             <a href="#skills" class="nav-link">Навыки</a>
             <a href="#about" class="nav-link">Обо мне</a>
             <a href="#contact" class="nav-link">Контакты</a>
-            <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"><i class="fas fa-moon"></i></button>
+            <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
         </nav>
     </div>
 </header>
@@ -69,9 +69,9 @@
                 <div class="project-card" data-category="web">
                     <div class="project-img">
                         <div class="screenshot-gallery">
-                            <img src="Screenshot_20260603-230956.jpg" alt="скриншот 1" class="gallery-thumb" onclick="openImageModal(this.src)" onerror="this.src='https://via.placeholder.com/200x150?text=скриншот'">
-                            <img src="Screenshot_20260603-231025.jpg" alt="скриншот 2" class="gallery-thumb" onclick="openImageModal(this.src)" onerror="this.src='https://via.placeholder.com/200x150?text=скриншот'">
-                            <img src="Screenshot_20260603-231100.jpg" alt="скриншот 3" class="gallery-thumb" onclick="openImageModal(this.src)" onerror="this.src='https://via.placeholder.com/200x150?text=скриншот'">
+                            <img src="Screenshot_20260603-230956.jpg" alt="погода 1" class="gallery-thumb" onclick="openImageModal(this.src)" loading="lazy" onerror="this.src='https://via.placeholder.com/200x150?text=скриншот'">
+                            <img src="Screenshot_20260603-231025.jpg" alt="погода 2" class="gallery-thumb" onclick="openImageModal(this.src)" loading="lazy" onerror="this.src='https://via.placeholder.com/200x150?text=скриншот'">
+                            <img src="Screenshot_20260603-231100.jpg" alt="погода 3" class="gallery-thumb" onclick="openImageModal(this.src)" loading="lazy" onerror="this.src='https://via.placeholder.com/200x150?text=скриншот'">
                         </div>
                         <span class="project-type">Веб-приложение</span>
                     </div>
@@ -82,24 +82,23 @@
                         <div class="project-links"><a href="https://fliperrsv.github.io/weather-app/" target="_blank" class="btn-demo"><i class="fas fa-external-link-alt"></i> Демо</a><a href="#" class="btn-details" data-project="weatherly"><i class="fas fa-info-circle"></i> Подробнее</a></div>
                     </div>
                 </div>
-                <!-- TaskFlow -->
+
+                <!-- TaskFlow с 4 скриншотами -->
                 <div class="project-card" data-category="web">
-                    <div class="project-img"><img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=TaskFlow" alt="TaskFlow"><span class="project-type">Веб-приложение</span></div>
+                    <div class="project-img">
+                        <div class="screenshot-gallery">
+                            <img src="todo0.jpg" alt="TaskFlow 1" class="gallery-thumb" onclick="openImageModal(this.src)" loading="lazy" onerror="this.src='https://via.placeholder.com/200x150?text=todo0'">
+                            <img src="todo1.jpg" alt="TaskFlow 2" class="gallery-thumb" onclick="openImageModal(this.src)" loading="lazy" onerror="this.src='https://via.placeholder.com/200x150?text=todo1'">
+                            <img src="todo2.jpg" alt="TaskFlow 3" class="gallery-thumb" onclick="openImageModal(this.src)" loading="lazy" onerror="this.src='https://via.placeholder.com/200x150?text=todo2'">
+                            <img src="todo3.jpg" alt="TaskFlow 4" class="gallery-thumb" onclick="openImageModal(this.src)" loading="lazy" onerror="this.src='https://via.placeholder.com/200x150?text=todo3'">
+                        </div>
+                        <span class="project-type">Веб-приложение</span>
+                    </div>
                     <div class="project-info">
                         <h3>TaskFlow — ToDo-менеджер</h3>
                         <p>Управление задачами, категории, приоритеты, сохранение в localStorage.</p>
                         <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JS</span><span>LocalStorage</span></div>
-                        <div class="project-links"><a href="#" class="btn-demo disabled" onclick="alert('Демо скоро')">Демо</a><a href="#" class="btn-details" data-project="taskflow">Подробнее</a></div>
-                    </div>
-                </div>
-                <!-- EduHelper Bot -->
-                <div class="project-card" data-category="bot">
-                    <div class="project-img"><img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=Telegram+Bot" alt="Бот"><span class="project-type">Telegram-бот</span></div>
-                    <div class="project-info">
-                        <h3>EduHelper Bot</h3>
-                        <p>Образовательный бот с викторинами, расписанием, интеграцией с Google Sheets.</p>
-                        <div class="project-tech"><span>Python</span><span>Aiogram</span><span>SQLite</span></div>
-                        <div class="project-links"><a href="#" class="btn-demo disabled" onclick="alert('Бот в разработке')">Тест-бот</a><a href="#" class="btn-details" data-project="edubot">Подробнее</a></div>
+                        <div class="project-links"><a href="https://fliperrsv.github.io/taskflow/" target="_blank" class="btn-demo"><i class="fas fa-external-link-alt"></i> Демо</a><a href="#" class="btn-details" data-project="taskflow">Подробнее</a></div>
                     </div>
                 </div>
             </div>
@@ -131,7 +130,7 @@
 
     <section id="about" class="about">
         <div class="container about-container">
-            <div class="about-photo"><div class="photo-frame"><img src="IMG_20240902_110506_091.jpg" alt="Сергей Резунков" onerror="this.src='https://via.placeholder.com/400x400?text=Фото'"></div></div>
+            <div class="about-photo"><div class="photo-frame"><img src="IMG_20240902_110506_091.jpg" alt="Сергей Резунков" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400?text=Фото'"></div></div>
             <div class="about-content">
                 <h2>Обо мне</h2>
                 <p>Привет! Меня зовут <strong>Сергей Резунков</strong>, я веб-разработчик. Создаю сайты и Telegram-ботов на заказ.</p>
