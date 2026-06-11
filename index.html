@@ -329,5 +329,22 @@
 </div>
 
 <script src="script.js"></script>
+<script>
+    // Принудительное скрытие прелоадера для телефона
+    (function() {
+        var preloader = document.getElementById('preloader');
+        if (preloader) {
+            // Скрываем сразу после загрузки DOM
+            document.addEventListener('DOMContentLoaded', function() {
+                preloader.style.display = 'none';
+            });
+            // Запасной вариант: скрываем через 1 секунду
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 1000);
+        }
+    })();
+</script>
+    
 </body>
 </html>
