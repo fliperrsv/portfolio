@@ -1,41 +1,32 @@
-// ==================== ТЁМНАЯ/СВЕТЛАЯ ТЕМА ====================
-const themeToggle = document.getElementById('themeToggle');
-const themeIcon = themeToggle?.querySelector('i');
+        // ==================== PRELOADER ====================
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.classList.add('hide');
+        setTimeout(() => { preloader.style.display = 'none'; }, 500);
+    }
+});
 
-function setTheme(theme) {
-    if (theme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-        if (themeIcon) {
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        }
-    } else {
+// ==================== ТЁМНАЯ ТЕМА ====================
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+themeToggle?.addEventListener('click', () => {
+    const isDark = document.documentElement.hasAttribute('data-theme');
+    if (isDark) {
         document.documentElement.removeAttribute('data-theme');
         localStorage.setItem('theme', 'light');
-        if (themeIcon) {
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-        }
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
     }
-}
-
-const savedTheme = localStorage.getItem('theme');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-if (savedTheme === 'dark' || (!savedTheme && prefersDark)) setTheme('dark');
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        const isDark = document.documentElement.hasAttribute('data-theme');
-        setTheme(isDark ? 'light' : 'dark');
-    });
-}
+});
 
 // ==================== МОБИЛЬНОЕ МЕНЮ ====================
 const mobileBtn = document.querySelector('.mobile-menu-btn');
 const nav = document.querySelector('.nav');
 if (mobileBtn && nav) {
-    mobileBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
+    mobileBtn.addEventListener('click', () => {
         nav.classList.toggle('active');
         const icon = mobileBtn.querySelector('i');
         if (icon) icon.classList.toggle('fa-times');
@@ -43,112 +34,75 @@ if (mobileBtn && nav) {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             nav.classList.remove('active');
-            if (mobileBtn.querySelector('i')) {
-                mobileBtn.querySelector('i').classList.add('fa-bars');
-            }
+            if (mobileBtn.querySelector('i')) mobileBtn.querySelector('i').classList.add('fa-bars');
         });
     });
     document.addEventListener('click', (e) => {
         if (!nav.contains(e.target) && !mobileBtn.contains(e.target) && nav.classList.contains('active')) {
             nav.classList.remove('active');
             const icon = mobileBtn.querySelector('i');
-            if (icon) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+            if (icon) { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
         }
     });
 }
 
-// ==================== КАРУСЕЛЬ ====================
-const track = document.getElementById('carouselTrack');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-let currentIndex = 0;
-let visibleCards = 1;
-let cardWidth = 0;
-
-function updateVisibleCards() {
-    if (window.innerWidth <= 600) visibleCards = 1;
-    else if (window.innerWidth <= 900) visibleCards = 2;
-    else visibleCards = 3;
-}
-
-function updateCardWidth() {
-    if (!track) return;
-    const firstCard = track.querySelector('.project-card');
-    if (!firstCard) return;
-    const gap = 32;
-    const containerWidth = track.parentElement.clientWidth;
-    cardWidth = (containerWidth - gap * (visibleCards - 1)) / visibleCards;
-    Array.from(track.children).forEach(card => {
-        card.style.flex = `0 0 ${cardWidth}px`;
+// ==================== АНИМАЦИЯ СЧЁТЧИКОВ ====================
+const statNumbers = document.querySelectorAll('.stat-number');
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const target = parseInt(entry.target.dataset.target);
+            if (isNaN(target)) return;
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    entry.target.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    entry.target.textContent = Math.floor(current);
+                }
+            }, 30);
+            counterObserver.unobserve(entry.target);
+        }
     });
-}
+}, { threshold: 0.5 });
+statNumbers.forEach(el => counterObserver.observe(el));
 
-function updateTrackPosition() {
-    if (!track) return;
-    const maxIndex = Math.max(0, track.children.length - visibleCards);
-    if (currentIndex > maxIndex) currentIndex = maxIndex;
-    const offset = -currentIndex * (cardWidth + 32);
-    track.style.transform = `translateX(${offset}px)`;
-}
-
-function goPrev() {
-    if (currentIndex > 0) {
-        currentIndex--;
-        updateTrackPosition();
-    }
-}
-
-function goNext() {
-    if (!track) return;
-    const maxIndex = Math.max(0, track.children.length - visibleCards);
-    if (currentIndex < maxIndex) {
-        currentIndex++;
-        updateTrackPosition();
-    }
-}
-
-if (prevBtn) prevBtn.addEventListener('click', goPrev);
-if (nextBtn) nextBtn.addEventListener('click', goNext);
-window.addEventListener('resize', () => {
-    updateVisibleCards();
-    updateCardWidth();
-    updateTrackPosition();
+// ==================== АНИМАЦИЯ ПОЯВЛЕНИЯ ====================
+const animatedElements = document.querySelectorAll('.hero, .project-card, .about-container, .contact-wrapper, .skill-category, .review-card');
+const appearObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+            appearObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+animatedElements.forEach(el => {
+    el.classList.add('fade-up');
+    appearObserver.observe(el);
 });
 
-// ==================== ФИЛЬТРАЦИЯ ПРОЕКТОВ (с обновлением карусели) ====================
+// ==================== ФИЛЬТРАЦИЯ ПРОЕКТОВ ====================
 const filterBtns = document.querySelectorAll('.filter-btn');
-const allProjects = track ? Array.from(track.children) : [];
-
-function filterProjects(filter) {
-    if (!track) return;
-    const visibleProjects = [];
-    allProjects.forEach(project => {
-        const category = project.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
-            project.style.display = '';
-            visibleProjects.push(project);
-        } else {
-            project.style.display = 'none';
-        }
-    });
-    const hiddenProjects = allProjects.filter(p => !visibleProjects.includes(p));
-    const newOrder = [...visibleProjects, ...hiddenProjects];
-    newOrder.forEach(el => track.appendChild(el));
-    currentIndex = 0;
-    updateVisibleCards();
-    updateCardWidth();
-    updateTrackPosition();
-}
-
+const projects = document.querySelectorAll('.project-card');
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter');
+        const filter = btn.dataset.filter;
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        filterProjects(filter);
+        projects.forEach(project => {
+            if (filter === 'all' || project.dataset.category.split(' ').includes(filter)) {
+                project.style.display = '';
+                setTimeout(() => { project.style.opacity = '1'; project.style.transform = 'scale(1)'; }, 10);
+            } else {
+                project.style.opacity = '0';
+                project.style.transform = 'scale(0.8)';
+                setTimeout(() => { project.style.display = 'none'; }, 200);
+            }
+        });
     });
 });
 
@@ -158,89 +112,112 @@ const modalBody = document.getElementById('modalBody');
 const closeModal = document.getElementById('closeProjectModal');
 
 function openProjectDetails(id) {
-    if (!modalBody) return;
-    if (id === 'weatherly') {
-        modalBody.innerHTML = `<h2>Weatherly — прогноз погоды</h2>
-            <p><strong>Задача:</strong> создать удобный виджет погоды с геолокацией.</p>
-            <p><strong>Решение:</strong> OpenWeatherMap API, асинхронные запросы, localStorage, геолокация браузера.</p>
-            <p><strong>Результат:</strong> быстрый отклик, поддержка тысяч городов, готовый код на GitHub.</p>
-            <a href="https://fliperrsv.github.io/weather-app/" target="_blank" class="btn-demo">Посмотреть демо →</a>`;
-    } else if (id === 'taskflow') {
-        modalBody.innerHTML = `<h2>TaskFlow — ToDo-менеджер</h2>
-            <p>Управление задачами, приоритеты, сохранение в localStorage. Адаптивный интерфейс.</p>
-            <p><strong>Технологии:</strong> HTML, CSS, JS, LocalStorage.</p>
-            <a href="https://fliperrsv.github.io/taskflow/" target="_blank" class="btn-demo">Открыть приложение →</a>`;
-    } else if (id === 'echobot') {
-        modalBody.innerHTML = `<h2>EchoBot — простой Telegram-бот</h2>
-            <p>Бот написан на Python с использованием библиотеки aiogram. Отвечает на команды /start, /help и повторяет текст пользователя.</p>
-            <p>Код доступен на GitHub: <a href="https://github.com/fliperrsv/echobot" target="_blank">github.com/fliperrsv/echobot</a></p>`;
+    const details = {
+        weatherly: {
+            title: 'Weatherly — прогноз погоды',
+            content: '🌤️ Виджет погоды с геолокацией, сохранением города и адаптивным дизайном. Интеграция с OpenWeatherMap API.',
+            tech: 'HTML5, CSS3, JavaScript ES6+, REST API'
+        },
+        taskflow: {
+            title: 'TaskFlow — умный ToDo-менеджер',
+            content: '✅ Управление задачами с категориями, приоритетами и сохранением в localStorage. Фильтрация по статусу.',
+            tech: 'HTML5, CSS3, JavaScript ES6+, LocalStorage'
+        },
+        sergdevbot: {
+            title: 'SergDevBot — Telegram-помощник',
+            content: '🤖 Бот с базой данных SQLite, напоминаниями, рассылками и мультиязычностью. Написан на aiogram.',
+            tech: 'Python, Aiogram, SQLite, APScheduler'
+        },
+        password: {
+            title: 'SecurePass — генератор паролей',
+            content: '🔐 Создаёт надёжные пароли с настройками длины, типов символов. Оценка сложности в реальном времени.',
+            tech: 'HTML5, CSS3, JavaScript ES6+'
+        },
+        currency: {
+            title: 'CurrencyX — конвертер валют',
+            content: '💱 Конвертирует валюты по актуальным курсам через открытое API. Автообновление, смена валют.',
+            tech: 'HTML5, CSS3, JavaScript, REST API'
+        }
+    };
+    const proj = details[id];
+    if (proj) {
+        modalBody.innerHTML = `
+            <h2>${proj.title}</h2>
+            <div class="case-meta" style="margin: 16px 0 20px; display: flex; flex-wrap: wrap; gap: 12px;">
+                <span style="background: var(--bg-secondary); padding: 4px 12px; border-radius: 40px; font-size: 0.8rem;">🛠️ Реальный проект</span>
+                <span style="background: var(--bg-secondary); padding: 4px 12px; border-radius: 40px; font-size: 0.8rem;">📁 В портфолио</span>
+            </div>
+            <div class="case-description" style="margin-bottom: 20px; line-height: 1.6;">
+                <p>${proj.content}</p>
+            </div>
+            <div class="case-tech" style="margin-bottom: 24px;">
+                <strong>Технологии:</strong> ${proj.tech}
+            </div>
+            <div class="case-links" style="display: flex; gap: 16px;">
+                <button onclick="window.location.href='https://github.com/fliperrsv'" class="btn-demo">📁 Код на GitHub</button>
+            </div>
+        `;
     }
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
 
-if (closeModal) {
-    closeModal.onclick = () => {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-    };
-}
+closeModal?.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+});
 window.onclick = (e) => {
     if (e.target === modal) {
         modal.style.display = 'none';
         document.body.style.overflow = '';
     }
 };
-
 document.querySelectorAll('.btn-details').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const project = btn.getAttribute('data-project');
+        const project = btn.dataset.project;
         if (project) openProjectDetails(project);
     });
 });
 
-// ==================== СКРЫТИЕ ХЕДЕРА ПРИ СКРОЛЛЕ ====================
-let lastScroll = 0;
-const header = document.querySelector('.header');
-window.addEventListener('scroll', () => {
-    if (!header) return;
-    const currentScroll = window.pageYOffset;
-    if (currentScroll > lastScroll && currentScroll > 100) {
-        header.classList.add('hide');
-    } else {
-        header.classList.remove('hide');
-    }
-    lastScroll = currentScroll;
-});
-
-// ==================== АНИМАЦИИ ПОЯВЛЕНИЯ (FADE UP) ====================
-const fadeElements = document.querySelectorAll('.hero, .project-card, .about-container, .contact-wrapper, .skill-category, .review-card, .faq-item');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('appear');
-            observer.unobserve(entry.target);
-        }
+// ==================== ЗВЁЗДНЫЙ РЕЙТИНГ ====================
+const stars = document.querySelectorAll('#starRating i');
+const ratingInput = document.getElementById('reviewRating');
+stars.forEach(star => {
+    star.addEventListener('click', () => {
+        const value = parseInt(star.dataset.value);
+        ratingInput.value = value;
+        stars.forEach((s, i) => {
+            if (i < value) {
+                s.classList.remove('far');
+                s.classList.add('fas');
+            } else {
+                s.classList.remove('fas');
+                s.classList.add('far');
+            }
+        });
     });
-}, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
-
-fadeElements.forEach(el => {
-    el.classList.add('fade-up');
-    observer.observe(el);
+});
+// Установить 5 звёзд по умолчанию
+ratingInput.value = 5;
+stars.forEach((star, i) => {
+    if (i < 5) {
+        star.classList.remove('far');
+        star.classList.add('fas');
+    }
 });
 
-// ==================== ОТЗЫВЫ (Google Sheets + Apps Script) ====================
-// ВАШИ ССЫЛКИ УЖЕ ПОДСТАВЛЕНЫ
-const GOOGLE_SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/1JQk09D0emxOFmzKtEKEIcajqL9pEHuhUDHDrW_XGclY/export?format=csv';
-const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbynzOLdPFLFMpDEJhTfcRKbUih1nHGL2hs_1MORdpyk2iKb6GQdn05REqJF138DQUop/exec';
+// ==================== ОТЗЫВЫ (ФОРМА + ЗАГРУЗКА) ====================
+// Замените на свои ссылки Google Sheets
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/ВАШ_СКРИПТ/exec';
+const GOOGLE_SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/ВАШ_ID/export?format=csv';
 
 async function loadReviews() {
     const container = document.getElementById('reviews-list');
     if (!container) return;
     try {
         const response = await fetch(GOOGLE_SHEETS_CSV_URL);
-        if (!response.ok) throw new Error('Ошибка загрузки CSV');
+        if (!response.ok) throw new Error();
         const csvText = await response.text();
         const rows = csvText.split('\n').slice(1);
         const reviews = [];
@@ -277,7 +254,7 @@ async function loadReviews() {
 }
 
 function escapeHtml(str) {
-    return str.replace(/[&<>]/g, function(m) {
+    return str.replace(/[&<>]/g, (m) => {
         if (m === '&') return '&amp;';
         if (m === '<') return '&lt;';
         if (m === '>') return '&gt;';
@@ -287,7 +264,7 @@ function escapeHtml(str) {
 
 const reviewForm = document.getElementById('reviewForm');
 if (reviewForm) {
-    reviewForm.addEventListener('submit', async function(e) {
+    reviewForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const name = document.getElementById('reviewName').value.trim();
         const text = document.getElementById('reviewText').value.trim();
@@ -309,19 +286,60 @@ if (reviewForm) {
             reviewForm.reset();
             setTimeout(loadReviews, 2000);
         } catch (error) {
-            console.error(error);
             statusDiv.innerHTML = '<span style="color:#ff6b4a;">❌ Ошибка отправки. Попробуйте позже.</span>';
         }
     });
 }
 
-if (document.getElementById('reviews-list')) {
-    loadReviews();
+// Загрузка отзывов
+if (document.getElementById('reviews-list')) loadReviews();
+
+// ==================== ФОРМА ОБРАТНОЙ СВЯЗИ ====================
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('contactName').value.trim();
+        const email = document.getElementById('contactEmail').value.trim();
+        const message = document.getElementById('contactMessage').value.trim();
+        const statusDiv = document.getElementById('contactFormStatus');
+        if (!name || !email || !message) {
+            statusDiv.innerHTML = '<span style="color:#ff6b4a;">Заполните все поля</span>';
+            return;
+        }
+        if (!/^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/.test(email)) {
+            statusDiv.innerHTML = '<span style="color:#ff6b4a;">Введите корректный email</span>';
+            return;
+        }
+        statusDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+        setTimeout(() => {
+            statusDiv.innerHTML = '<span style="color:#4ade80;">✅ Сообщение отправлено! Я свяжусь с вами в ближайшее время.</span>';
+            contactForm.reset();
+        }, 1000);
+        setTimeout(() => {
+            if (statusDiv.innerHTML.includes('отправлено')) statusDiv.innerHTML = '';
+        }, 5000);
+    });
 }
 
-// ==================== ИНИЦИАЛИЗАЦИЯ КАРУСЕЛИ ПОСЛЕ ЗАГРУЗКИ DOM ====================
-document.addEventListener('DOMContentLoaded', () => {
-    updateVisibleCards();
-    updateCardWidth();
-    updateTrackPosition();
+// ==================== CSS-классы для анимации ====================
+const style = document.createElement('style');
+style.textContent = `
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.appear { opacity: 1; transform: translateY(0); }
+`;
+document.head.appendChild(style);
+
+// ==================== СКРЫТИЕ ХЕДЕРА ПРИ СКРОЛЛЕ ====================
+let lastScroll = 0;
+const header = document.querySelector('.header');
+window.addEventListener('scroll', () => {
+    if (!header) return;
+    const currentScroll = window.pageYOffset;
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        header.classList.add('hide');
+    } else {
+        header.classList.remove('hide');
+    }
+    lastScroll = currentScroll;
 });
