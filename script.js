@@ -161,3 +161,90 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCardWidth();
     updateTrackPosition();
 });
+// ===== НОВАЯ ФУНКЦИЯ: ОТЗЫВЫ =====
+// ЗАМЕНИТЕ ЭТУ ССЫЛКУ ПОСЛЕ ТОГО, КАК ОПУБЛИКУЕТЕ ТАБЛИЦУ
+const GOOGLE_SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/1JQk09D0emxOFmzKtEKEIcajqL9pEHuhUDHDrW_XGclY/edit?usp=drivesdk';
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbynzOLdPFLFMpDEJhTfcRKbUih1nHGL2hs_1MORdpyk2iKb6GQdn05REqJF138DQUop/exec';
+
+async function loadReviews() {
+  const container = document.getElementById('reviews-list');
+  if (!container) return;
+
+  try {
+    const response = await fetch(GOOGLE_SHEETS_CSV_URL);
+    const csvText = await response.text();
+    const rows = csvText.split('\n').slice(1);
+    const reviews = [];
+
+    for (let row of rows) {
+      const cols = row.match(/(".*?"|[^,]+)(?=\s*,|\s*$)/g);
+      if (cols && cols.length >= 3) {
+        const date = cols[0]?.replace(/"/g, '') || '';
+        const name = cols[1]?.replace(/"/g, '') || '';
+        const text = cols[2]?.replace(/"/g, '') || '';
+        const rating = parseInt(cols[3]) || 5;
+        if (name && text) reviews.push({ date, name, text, rating });
+      }
+    }
+
+    reviews.reverse();
+
+    if (reviews.length === 0) {
+      container.innerHTML = '<p style="text-align: center;">Пока нет отзывов. Будьте первым!</p>';
+    } else {
+      container.innerHTML = reviews.map(rev => `
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-author">${escapeHtml(rev.name)}</span>
+            <span class="review-rating">${'★'.repeat(rev.rating)}${'☆'.repeat(5-rev.rating)}</span>
+          </div>
+          <div class="review-text">${escapeHtml(rev.text)}</div>
+          <div class="review-date">${rev.date || ''}</div>
+        </div>
+      `).join('');
+    }
+  } catch (e) {
+    console.error('Ошибка загрузки отзывов:', e);
+    container.innerHTML = '<p style="text-align: center;">Не удалось загрузить отзывы. Попробуйте позже.</p>';
+  }
+}
+
+function escapeHtml(str) {
+  return str.replace(/[&<>]/g, function(m) {
+    if (m === '&') return '&amp;';
+    if (m === '<') return '&lt;';
+    if (m === '>') return '&gt;';
+    return m;
+  }).replace(/\n/g, '<br>');
+}
+
+document.getElementById('reviewForm')?.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const name = document.getElementById('reviewName').value.trim();
+  const text = document.getElementById('reviewText').value.trim();
+  const rating = document.getElementById('reviewRating').value;
+  const statusDiv = document.getElementById('reviewFormStatus');
+
+  if (!name || !text) {
+    statusDiv.innerHTML = '<span style="color:#ff6b4a;">Заполните имя и текст отзыва</span>';
+    return;
+  }
+
+  statusDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+  try {
+    await fetch(GOOGLE_APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, text, rating })
+    });
+    statusDiv.innerHTML = '<span style="color:#4ade80;">✅ Спасибо! Ваш отзыв будет опубликован после проверки.</span>';
+    document.getElementById('reviewForm').reset();
+    setTimeout(loadReviews, 2000);
+  } catch (error) {
+    console.error(error);
+    statusDiv.innerHTML = '<span style="color:#ff6b4a;">❌ Ошибка отправки. Попробуйте позже.</span>';
+  }
+});
+
+if (document.getElementById('reviews-list')) loadReviews();
