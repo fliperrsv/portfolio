@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Сергей Резунков | Веб-разработчик</title>
-    <meta name="description" content="Портфолио веб-разработчика. Создаю сайты и Telegram-ботов.">
+    <title>Сергей Резунков | Веб-разработчик, создание сайтов и Telegram-ботов</title>
+    <meta name="description" content="Веб-разработчик Сергей Резунков. Создаю сайты-визитки, лендинги, Telegram-ботов под ключ. Адаптивная вёрстка, чистый код, гарантия качества. Примеры работ в портфолио.">
+    <meta name="keywords" content="веб-разработчик, создание сайтов, лендинг, телеграм бот, вёрстка, портфолио разработчика, заказать сайт">
+    <meta name="author" content="Сергей Резунков">
+    <link rel="canonical" href="https://fliperrsv.github.io/portfolio/">
+    <meta property="og:title" content="Сергей Резунков | Веб-разработчик">
+    <meta property="og:description" content="Создаю сайты и телеграм-ботов под ключ. Примеры работ и отзывы.">
+    <meta property="og:image" content="https://fliperrsv.github.io/portfolio/images/og-image.jpg">
+    <meta property="og:url" content="https://fliperrsv.github.io/portfolio/">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -64,13 +72,10 @@
                 <button class="filter-btn" data-filter="web">Веб-сайты</button>
                 <button class="filter-btn" data-filter="bot">Telegram-боты</button>
             </div>
-            
-            <!-- Карусель -->
             <div class="carousel-container">
                 <button class="carousel-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
                 <div class="carousel-track-wrapper">
                     <div class="carousel-track" id="carouselTrack">
-                        <!-- Проект 1: Weatherly -->
                         <div class="project-card" data-category="web">
                             <div class="project-img">
                                 <div class="screenshot-gallery">
@@ -87,7 +92,6 @@
                                 <div class="project-links"><a href="https://fliperrsv.github.io/weather-app/" target="_blank" class="btn-demo"><i class="fas fa-external-link-alt"></i> Демо</a><a href="#" class="btn-details" data-project="weatherly"><i class="fas fa-info-circle"></i> Подробнее</a></div>
                             </div>
                         </div>
-                        <!-- Проект 2: TaskFlow -->
                         <div class="project-card" data-category="web">
                             <div class="project-img">
                                 <div class="screenshot-gallery">
@@ -102,10 +106,9 @@
                                 <h3>TaskFlow — ToDo-менеджер</h3>
                                 <p>Управление задачами, категории, приоритеты, сохранение в localStorage.</p>
                                 <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JS</span><span>LocalStorage</span></div>
-                                <div class="project-links"><a href="https://fliperrsv.github.io/taskflow/" target="_blank" class="btn-demo"><i class="fas fa-external-link-alt"></i> Демо</a><a href="#" class="btn-details" data-project="taskflow">Подробнее</a></div>
+                                <div class="project-links"><a href="https://fliperrsv.github.io/taskflow/" target="_blank" class="btn-demo"><i class="fas fa-external-link-alt"></i> Демо</a><a href="#" class="btn-details" data-project="taskflow"><i class="fas fa-info-circle"></i> Подробнее</a></div>
                             </div>
                         </div>
-                        <!-- Проект 3: Простой Telegram-бот (новый) -->
                         <div class="project-card" data-category="bot">
                             <div class="project-img">
                                 <div class="screenshot-gallery">
@@ -119,7 +122,7 @@
                                 <div class="project-tech"><span>Python</span><span>Aiogram</span></div>
                                 <div class="project-links">
                                     <a href="https://t.me/your_echo_bot" target="_blank" class="btn-demo"><i class="fab fa-telegram"></i> Тест-бот</a>
-                                    <a href="#" class="btn-details" data-project="echobot">Подробнее</a>
+                                    <a href="#" class="btn-details" data-project="echobot"><i class="fas fa-info-circle"></i> Подробнее</a>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +133,6 @@
         </div>
     </section>
 
-    <!-- Остальные секции (skills, about, contact) без изменений -->
     <section id="skills" class="skills-section">
         <div class="container">
             <div class="section-header"><h2>Технологии и инструменты</h2><p>С чем я работаю</p></div>
@@ -167,68 +169,57 @@
         </div>
     </section>
 
-    <!-- ==================== НОВЫЙ РАЗДЕЛ: ОТЗЫВЫ ==================== -->
-<section id="reviews" class="reviews">
-  <div class="container">
-    <div class="section-header">
-      <h2>Отзывы клиентов</h2>
-      <p>Что говорят обо мне те, для кого я работал</p>
-    </div>
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-header"><h2>Отзывы клиентов</h2><p>Что говорят обо мне те, для кого я работал</p></div>
+            <div id="reviews-list" class="reviews-grid"><p style="text-align: center;">Загрузка отзывов...</p></div>
+            <div class="review-form-wrapper">
+                <h3>Оставьте свой отзыв</h3>
+                <form id="reviewForm">
+                    <div class="form-group"><input type="text" id="reviewName" placeholder="Ваше имя" required></div>
+                    <div class="form-group"><textarea id="reviewText" rows="3" placeholder="Ваш отзыв" required></textarea></div>
+                    <div class="form-group rating-group">
+                        <label>Оценка:</label>
+                        <select id="reviewRating">
+                            <option value="5">★★★★★ (5)</option>
+                            <option value="4">★★★★☆ (4)</option>
+                            <option value="3">★★★☆☆ (3)</option>
+                            <option value="2">★★☆☆☆ (2)</option>
+                            <option value="1">★☆☆☆☆ (1)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+                    <div id="reviewFormStatus" class="form-status"></div>
+                </form>
+            </div>
+        </div>
+    </section>
 
-    <!-- Список отзывов будет загружен сюда через JavaScript -->
-    <div id="reviews-list" class="reviews-grid">
-      <p style="text-align: center;">Загрузка отзывов...</p>
-    </div>
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header"><h2>Часто задаваемые вопросы</h2><p>Ответы на вопросы, которые мне чаще всего задают</p></div>
+            <div class="faq-grid">
+                <div class="faq-item"><div class="faq-question">❓ Сколько стоит разработка сайта или бота?</div><div class="faq-answer">Стоимость зависит от сложности. Лендинг — от 5000 ₽, сайт-визитка — от 7000 ₽, Telegram-бот — от 4000 ₽. Точную цену называю после обсуждения задачи.</div></div>
+                <div class="faq-item"><div class="faq-question">❓ Какие сроки выполнения?</div><div class="faq-answer">Лендинг — 2-3 дня, сайт-визитка — 3-5 дней, бот — 2-4 дня. Срочные заказы обсуждаем отдельно.</div></div>
+                <div class="faq-item"><div class="faq-question">❓ Нужно ли платить за хостинг и домен?</div><div class="faq-answer">Хостинг и домен оплачиваются отдельно (≈ 200-500 ₽/мес). Я помогаю с выбором и настройкой.</div></div>
+                <div class="faq-item"><div class="faq-question">❓ Буду ли я получать поддержку после сдачи проекта?</div><div class="faq-answer">Да, я исправляю ошибки в течение 2 недель бесплатно. Дальнейшая поддержка — по договорённости.</div></div>
+                <div class="faq-item"><div class="faq-question">❓ Можно ли посмотреть примеры кода?</div><div class="faq-answer">Конечно! Все проекты в портфолио имеют ссылку на GitHub. Смотрите, изучайте.</div></div>
+                <div class="faq-item"><div class="faq-question">❓ Как связаться для заказа?</div><div class="faq-answer">Напишите в Telegram @fliperrsv1 или заполните форму обратной связи ниже. Отвечаю в течение часа.</div></div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Форма для отправки нового отзыва -->
-    <div class="review-form-wrapper">
-      <h3>Оставьте свой отзыв</h3>
-      <form id="reviewForm">
-        <div class="form-group">
-          <input type="text" id="reviewName" placeholder="Ваше имя" required>
-        </div>
-        <div class="form-group">
-          <textarea id="reviewText" rows="3" placeholder="Ваш отзыв" required></textarea>
-        </div>
-        <div class="form-group rating-group">
-          <label>Оценка:</label>
-          <select id="reviewRating">
-            <option value="5">★★★★★ (5)</option>
-            <option value="4">★★★★☆ (4)</option>
-            <option value="3">★★★☆☆ (3)</option>
-            <option value="2">★★☆☆☆ (2)</option>
-            <option value="1">★☆☆☆☆ (1)</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Отправить отзыв</button>
-        <div id="reviewFormStatus" class="form-status"></div>
-      </form>
-    </div>
-  </div>
-</section>
-    
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header"><h2>Свяжитесь со мной</h2><p>Готов обсудить ваш проект</p></div>
             <div class="contact-wrapper">
                 <form id="my-form" class="contact-form">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Ваше имя" required data-fs-field>
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Email" required data-fs-field>
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" rows="4" placeholder="Опишите задачу или вопрос" required data-fs-field></textarea>
-                        <i class="fas fa-pencil-alt"></i>
-                    </div>
-                    <button type="submit" class="btn btn-primary" data-fs-submit-btn>
-                        <i class="fas fa-paper-plane"></i> Отправить сообщение
-                    </button>
-                    <div data-fs-success class="form-status" style="color: #4ade80; margin-top: 12px;"></div>
-                    <div data-fs-error class="form-status" style="color: #ff6b4a; margin-top: 12px;"></div>
+                    <div class="form-group"><input type="text" name="name" placeholder="Ваше имя" required data-fs-field><i class="fas fa-user"></i></div>
+                    <div class="form-group"><input type="email" name="email" placeholder="Email" required data-fs-field><i class="fas fa-envelope"></i></div>
+                    <div class="form-group"><textarea name="message" rows="4" placeholder="Опишите задачу или вопрос" required data-fs-field></textarea><i class="fas fa-pencil-alt"></i></div>
+                    <button type="submit" class="btn btn-primary" data-fs-submit-btn><i class="fas fa-paper-plane"></i> Отправить сообщение</button>
+                    <div data-fs-success class="form-status" style="color:#4ade80; margin-top:12px"></div>
+                    <div data-fs-error class="form-status" style="color:#ff6b4a; margin-top:12px"></div>
                 </form>
                 <div class="contact-info">
                     <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:fliperrsv@yandex.ru">fliperrsv@yandex.ru</a></div>
@@ -240,17 +231,42 @@
         </div>
     </section>
 </main>
+
 <footer class="footer"><div class="container"><p>© 2025 Сергей Резунков</p></div></footer>
 
-<div id="imageModal" class="modal"><div class="modal-content" style="max-width:90%; text-align:center"><span class="modal-close" id="closeImageModal">&times;</span><img id="modalImage" src="" style="max-width:100%; max-height:80vh; border-radius:16px"></div></div>
-<div id="projectModal" class="modal"><div class="modal-content"><span class="modal-close" id="closeProjectModal">&times;</span><div id="modalBody"></div></div></div>
+<div id="imageModal" class="modal">
+    <div class="modal-content" style="max-width:90%; text-align:center">
+        <span class="modal-close" id="closeImageModal">&times;</span>
+        <img id="modalImage" src="" style="max-width:100%; max-height:80vh; border-radius:16px">
+    </div>
+</div>
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close" id="closeProjectModal">&times;</span>
+        <div id="modalBody"></div>
+    </div>
+</div>
 
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 <script src="script.js"></script>
 <script>
-    function openImageModal(src) { let modal = document.getElementById('imageModal'), img = document.getElementById('modalImage'); modal.style.display = 'flex'; img.src = src; document.body.style.overflow = 'hidden'; }
-    document.getElementById('closeImageModal')?.addEventListener('click', function() { document.getElementById('imageModal').style.display = 'none'; document.body.style.overflow = ''; });
-    document.getElementById('imageModal')?.addEventListener('click', function(e) { if(e.target === this) { this.style.display = 'none'; document.body.style.overflow = ''; } });
+    function openImageModal(src) {
+        let modal = document.getElementById('imageModal');
+        let img = document.getElementById('modalImage');
+        modal.style.display = 'flex';
+        img.src = src;
+        document.body.style.overflow = 'hidden';
+    }
+    document.getElementById('closeImageModal')?.addEventListener('click', function() {
+        document.getElementById('imageModal').style.display = 'none';
+        document.body.style.overflow = '';
+    });
+    document.getElementById('imageModal')?.addEventListener('click', function(e) {
+        if(e.target === this) {
+            this.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    });
     window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
     formspree('initForm', { formElement: '#my-form', formId: 'xvznolvo' });
 </script>
