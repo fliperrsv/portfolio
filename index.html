@@ -167,6 +167,46 @@
         </div>
     </section>
 
+    <!-- ==================== НОВЫЙ РАЗДЕЛ: ОТЗЫВЫ ==================== -->
+<section id="reviews" class="reviews">
+  <div class="container">
+    <div class="section-header">
+      <h2>Отзывы клиентов</h2>
+      <p>Что говорят обо мне те, для кого я работал</p>
+    </div>
+
+    <!-- Список отзывов будет загружен сюда через JavaScript -->
+    <div id="reviews-list" class="reviews-grid">
+      <p style="text-align: center;">Загрузка отзывов...</p>
+    </div>
+
+    <!-- Форма для отправки нового отзыва -->
+    <div class="review-form-wrapper">
+      <h3>Оставьте свой отзыв</h3>
+      <form id="reviewForm">
+        <div class="form-group">
+          <input type="text" id="reviewName" placeholder="Ваше имя" required>
+        </div>
+        <div class="form-group">
+          <textarea id="reviewText" rows="3" placeholder="Ваш отзыв" required></textarea>
+        </div>
+        <div class="form-group rating-group">
+          <label>Оценка:</label>
+          <select id="reviewRating">
+            <option value="5">★★★★★ (5)</option>
+            <option value="4">★★★★☆ (4)</option>
+            <option value="3">★★★☆☆ (3)</option>
+            <option value="2">★★☆☆☆ (2)</option>
+            <option value="1">★☆☆☆☆ (1)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+        <div id="reviewFormStatus" class="form-status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+    
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header"><h2>Свяжитесь со мной</h2><p>Готов обсудить ваш проект</p></div>
