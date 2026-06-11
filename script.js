@@ -1,9 +1,21 @@
-        // ==================== PRELOADER ====================
-window.addEventListener('load', () => {
+// ==================== ПРЕЛОАДЕР ====================
+document.addEventListener('DOMContentLoaded', function() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        preloader.classList.add('hide');
-        setTimeout(() => { preloader.style.display = 'none'; }, 500);
+        // Скрываем прелоадер после полной загрузки страницы
+        window.addEventListener('load', function() {
+            preloader.classList.add('hide');
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+        // Запасной вариант: если страница уже загружена
+        if (document.readyState === 'complete') {
+            preloader.classList.add('hide');
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 500);
+        }
     }
 });
 
