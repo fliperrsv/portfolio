@@ -329,18 +329,20 @@
 </div>
 
 <script src="script.js"></script>
+
+
 <script>
-    // Принудительное скрытие прелоадера для телефона
+    // Простой и надёжный прелоадер для телефона
     (function() {
         var preloader = document.getElementById('preloader');
         if (preloader) {
-            // Скрываем сразу после загрузки DOM
-            document.addEventListener('DOMContentLoaded', function() {
-                preloader.style.display = 'none';
-            });
-            // Запасной вариант: скрываем через 1 секунду
+            // Скрываем прелоадер через 1.5 секунды
             setTimeout(function() {
-                preloader.style.display = 'none';
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                }, 300);
             }, 1000);
         }
     })();
