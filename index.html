@@ -4,15 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Сергей Резунков | Веб-разработчик</title>
-    <meta name="description" content="Веб-разработчик Сергей Резунков. Создаю сайты, Telegram-ботов, веб-приложения. Адаптивная вёрстка, чистый код, гарантия качества.">
-    <meta name="keywords" content="веб-разработчик, создание сайтов, лендинг, телеграм бот, вёрстка, портфолио">
+    <meta name="description" content="Портфолио веб-разработчика. Кейсы: погодное приложение, ToDo-менеджер, Telegram-бот, конвертер валют, генератор паролей, финансовый трекер на Vue.js.">
     <meta name="author" content="Сергей Резунков">
-    <link rel="canonical" href="https://fliperrsv.github.io/portfolio/">
-    <meta property="og:title" content="Сергей Резунков | Веб-разработчик">
-    <meta property="og:description" content="Создаю сайты и телеграм-ботов под ключ. Примеры работ и отзывы.">
-    <meta property="og:image" content="https://fliperrsv.github.io/portfolio/og-image.jpg">
-    <meta property="og:url" content="https://fliperrsv.github.io/portfolio/">
-    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -20,20 +13,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- Preloader -->
-<div class="preloader" id="preloader">
-    <div class="preloader-spinner"></div>
-</div>
-
-<!-- Header -->
 <header class="header">
     <div class="container header-container">
         <a href="#home" class="logo"><i class="fas fa-code"></i> Сергей Резунков</a>
         <button class="mobile-menu-btn" aria-label="Меню"><i class="fas fa-bars"></i></button>
         <nav class="nav">
             <a href="#home" class="nav-link">Главная</a>
-            <a href="#portfolio" class="nav-link">Портфолио</a>
+            <a href="#cases" class="nav-link">Кейсы</a>
             <a href="#skills" class="nav-link">Навыки</a>
             <a href="#about" class="nav-link">Обо мне</a>
             <a href="#reviews" class="nav-link">Отзывы</a>
@@ -49,15 +35,15 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <div class="hero-tag">Веб-разработчик</div>
-                <h1 class="hero-title">Создаю <span class="gradient-text">сайты и ботов</span><br>которые приносят прибыль</h1>
-                <p class="hero-desc">Адаптивный дизайн, чистый код, Telegram-боты под любые задачи. Работаю на результат.</p>
+                <h1 class="hero-title">Создаю <span class="gradient-text">сайты, ботов и приложения</span><br>которые решают задачи бизнеса</h1>
+                <p class="hero-desc">Адаптивный дизайн, чистый код, современный стек (Vue.js, Python, REST API). Работаю на результат.</p>
                 <div class="hero-stats">
                     <div class="stat"><span class="stat-number" data-target="2">0</span><span class="stat-label">года в IT</span></div>
-                    <div class="stat"><span class="stat-number" data-target="8">0</span><span class="stat-label">проектов</span></div>
-                    <div class="stat"><span class="stat-number" data-target="15">0</span><span class="stat-label">счастливых клиентов</span></div>
+                    <div class="stat"><span class="stat-number" data-target="6">0</span><span class="stat-label">проектов</span></div>
+                    <div class="stat"><span class="stat-number" data-target="15">0</span><span class="stat-label">клиентов</span></div>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary"><i class="fas fa-arrow-down"></i> Смотреть проекты</a>
+                    <a href="#cases" class="btn btn-primary"><i class="fas fa-arrow-down"></i> Смотреть кейсы</a>
                     <a href="#contact" class="btn btn-outline">Связаться <i class="fas fa-paper-plane"></i></a>
                 </div>
             </div>
@@ -65,288 +51,179 @@
                 <div class="floating-card">
                     <div class="code-icon"><i class="fas fa-laptop-code"></i></div>
                     <div class="tech-stack">
-                        <span>HTML/CSS/JS</span>
-                        <span>React</span>
-                        <span>Python/Flask</span>
-                        <span>Telegram Bot API</span>
-                        <span>Git & GitHub</span>
+                        <span>HTML/CSS/JS</span><span>Vue.js</span><span>Python/Flask</span><span>Telegram Bot API</span><span>Git & GitHub</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="hero-shape">
-            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-                <path d="M0,0 C300,100 600,0 1440,50 L1440,120 L0,120 Z" fill="url(#gradientShape)"/>
-                <defs>
-                    <linearGradient id="gradientShape" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stop-color="#ff6b4a"/>
-                        <stop offset="100%" stop-color="#ff8a5c"/>
-                    </linearGradient>
-                </defs>
-            </svg>
-        </div>
+        <div class="hero-shape"><svg viewBox="0 0 1440 120"><path d="M0,0 C300,100 600,0 1440,50 L1440,120 L0,120 Z" fill="url(#gradientShape)"/><defs><linearGradient id="gradientShape" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ff6b4a"/><stop offset="100%" stop-color="#ff8a5c"/></linearGradient></defs></svg></div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
+    <!-- Кейсы (Case Studies) -->
+    <section id="cases" class="cases">
         <div class="container">
             <div class="section-header">
-                <h2>Мои работы</h2>
-                <p>Реальные проекты, которые решают задачи бизнеса и пользователей</p>
+                <h2>Кейсы</h2>
+                <p>Реальные проекты с подробным описанием задачи, решения и результата</p>
             </div>
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">Все проекты</button>
-                <button class="filter-btn" data-filter="web">Веб-сайты</button>
-                <button class="filter-btn" data-filter="bot">Telegram-боты</button>
-                <button class="filter-btn" data-filter="tool">Инструменты</button>
-            </div>
-            <div class="projects-grid" id="projectsGrid">
-                <!-- Weatherly -->
-                <div class="project-card" data-category="web">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=Weatherly" alt="Weatherly" loading="lazy">
-                        <span class="project-type">Веб-приложение</span>
+            <div class="cases-grid">
+                <!-- 1. Weatherly -->
+                <div class="case-card">
+                    <div class="case-gallery">
+                        <img src="Screenshot_20260603-230956.jpg" alt="Weatherly экран 1">
+                        <img src="Screenshot_20260603-231025.jpg" alt="Weatherly экран 2">
+                        <img src="Screenshot_20260603-231100.jpg" alt="Weatherly экран 3">
                     </div>
-                    <div class="project-info">
+                    <div class="case-info">
                         <h3>Weatherly — прогноз погоды</h3>
-                        <p>Виджет с геолокацией, OpenWeatherMap API, адаптивный дизайн, сохранение города.</p>
-                        <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JS</span><span>API</span></div>
-                        <div class="project-links">
-                            <a href="https://fliperrsv.github.io/weather-app/" target="_blank" class="btn-demo"><i class="fas fa-external-link-alt"></i> Демо</a>
-                            <a href="#" class="btn-details" data-project="weatherly"><i class="fas fa-info-circle"></i> Кейс</a>
+                        <p class="case-problem"><strong>❓ Задача:</strong> создать лёгкий виджет погоды с геолокацией, сохранением города и адаптивным дизайном.</p>
+                        <p class="case-solution"><strong>💡 Решение:</strong> использован OpenWeatherMap API, асинхронные запросы, localStorage, Geolocation API. Вёрстка на flex/grid.</p>
+                        <p class="case-result"><strong>🚀 Результат:</strong> время получения данных <0.5 сек, поддержка 2000+ городов, код на GitHub.</p>
+                        <div class="case-tech">
+                            <span>HTML5</span><span>CSS3</span><span>JS ES6+</span><span>REST API</span>
+                        </div>
+                        <div class="case-links">
+                            <a href="https://fliperrsv.github.io/weather-app/" target="_blank" class="btn-demo">🔗 Демо</a>
+                            <a href="https://github.com/fliperrsv/weather-app" target="_blank" class="btn-demo">📁 Код</a>
                         </div>
                     </div>
                 </div>
-                <!-- TaskFlow -->
-                <div class="project-card" data-category="web tool">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=TaskFlow" alt="TaskFlow" loading="lazy">
-                        <span class="project-type">Веб-приложение</span>
+
+                <!-- 2. TaskFlow -->
+                <div class="case-card">
+                    <div class="case-gallery">
+                        <img src="todo0.jpg" alt="TaskFlow 1"><img src="todo1.jpg" alt="TaskFlow 2"><img src="todo2.jpg" alt="TaskFlow 3"><img src="todo3.jpg" alt="TaskFlow 4">
                     </div>
-                    <div class="project-info">
-                        <h3>TaskFlow — ToDo-менеджер</h3>
-                        <p>Управление задачами, категории, приоритеты, LocalStorage, фильтрация.</p>
-                        <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JS</span><span>LocalStorage</span></div>
-                        <div class="project-links">
-                            <a href="https://fliperrsv.github.io/taskflow/" target="_blank" class="btn-demo"><i class="fas fa-external-link-alt"></i> Демо</a>
-                            <a href="#" class="btn-details" data-project="taskflow"><i class="fas fa-info-circle"></i> Кейс</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- SergDevBot -->
-                <div class="project-card" data-category="bot">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=Telegram+Bot" alt="Telegram-бот" loading="lazy">
-                        <span class="project-type">Telegram-бот</span>
-                    </div>
-                    <div class="project-info">
-                        <h3>SergDevBot — помощник</h3>
-                        <p>Бот с БД SQLite, напоминаниями, рассылками, мультиязычностью.</p>
-                        <div class="project-tech"><span>Python</span><span>Aiogram</span><span>SQLite</span></div>
-                        <div class="project-links">
-                            <a href="https://t.me/SergDevBot" target="_blank" class="btn-demo"><i class="fab fa-telegram"></i> Тест-бот</a>
-                            <a href="#" class="btn-details" data-project="sergdevbot"><i class="fas fa-info-circle"></i> Кейс</a>
-                        </div>
+                    <div class="case-info">
+                        <h3>TaskFlow — умный ToDo-менеджер</h3>
+                        <p class="case-problem"><strong>❓ Задача:</strong> создать SPA для управления задачами с категориями, приоритетами, дедлайнами и сохранением в браузере.</p>
+                        <p class="case-solution"><strong>💡 Решение:</strong> чистый JavaScript, localStorage, динамическое создание DOM, фильтрация, подсветка просроченных задач.</p>
+                        <p class="case-result"><strong>🚀 Результат:</strong> интуитивный интерфейс, поддержка до 1000 задач, экспорт/импорт данных.</p>
+                        <div class="case-tech"><span>HTML5</span><span>CSS3</span><span>JS ES6+</span><span>LocalStorage</span></div>
+                        <div class="case-links"><a href="https://fliperrsv.github.io/taskflow/" target="_blank" class="btn-demo">🔗 Демо</a><a href="https://github.com/fliperrsv/taskflow" target="_blank" class="btn-demo">📁 Код</a></div>
                     </div>
                 </div>
-                <!-- Password Generator -->
-                <div class="project-card" data-category="tool">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=Password+Generator" alt="Password Generator" loading="lazy">
-                        <span class="project-type">Инструмент</span>
-                    </div>
-                    <div class="project-info">
-                        <h3>SecurePass — генератор паролей</h3>
-                        <p>Создаёт сложные пароли с настройками (длина, типы символов).</p>
-                        <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JS</span></div>
-                        <div class="project-links">
-                            <a href="https://fliperrsv.github.io/password-generator/" target="_blank" class="btn-demo"><i class="fas fa-external-link-alt"></i> Демо</a>
-                            <a href="#" class="btn-details" data-project="password"><i class="fas fa-info-circle"></i> Кейс</a>
-                        </div>
+
+                <!-- 3. Telegram-бот -->
+                <div class="case-card">
+                    <div class="case-gallery"><img src="bot0.jpg" alt="Telegram бот"></div>
+                    <div class="case-info">
+                        <h3>SergDevBot — Telegram-помощник</h3>
+                        <p class="case-problem"><strong>❓ Задача:</strong> разработать многофункционального бота с БД, напоминаниями, рассылками и админ-панелью.</p>
+                        <p class="case-solution"><strong>💡 Решение:</strong> Python, aiogram, SQLite, APScheduler, инлайн-клавиатуры, логирование.</p>
+                        <p class="case-result"><strong>🚀 Результат:</strong> бот работает 24/7, хранит историю пользователей, поддерживает рассылки и напоминания.</p>
+                        <div class="case-tech"><span>Python</span><span>Aiogram</span><span>SQLite</span></div>
+                        <div class="case-links"><a href="https://t.me/SergDevBot" target="_blank" class="btn-demo">🤖 Тест-бот</a><a href="https://github.com/fliperrsv/SergDevBot" target="_blank" class="btn-demo">📁 Код</a></div>
                     </div>
                 </div>
-                <!-- Currency Converter -->
-                <div class="project-card" data-category="tool">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400/2c3e50/ffffff?text=Currency+Converter" alt="Currency Converter" loading="lazy">
-                        <span class="project-type">Инструмент</span>
-                    </div>
-                    <div class="project-info">
+
+                <!-- 4. Конвертер валют -->
+                <div class="case-card">
+                    <div class="case-gallery"><img src="kon0.jpg" alt="Конвертер 1"><img src="kon1.jpg" alt="Конвертер 2"><img src="kon2.jpg" alt="Конвертер 3"></div>
+                    <div class="case-info">
                         <h3>CurrencyX — конвертер валют</h3>
-                        <p>Конвертирует валюты по актуальному курсу через API.</p>
-                        <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JS</span><span>REST API</span></div>
-                        <div class="project-links">
-                            <a href="https://fliperrsv.github.io/currency-converter/" target="_blank" class="btn-demo"><i class="fas fa-external-link-alt"></i> Демо</a>
-                            <a href="#" class="btn-details" data-project="currency"><i class="fas fa-info-circle"></i> Кейс</a>
-                        </div>
+                        <p class="case-problem"><strong>❓ Задача:</strong> создать инструмент для быстрой конвертации 5 валют с актуальным курсом.</p>
+                        <p class="case-solution"><strong>💡 Решение:</strong> API Frankfurter, тёмная тема, сохранение выбранных валют в localStorage, автообновление.</p>
+                        <p class="case-result"><strong>🚀 Результат:</strong> мгновенная конвертация, поддержка RUB, USD, EUR, GBP, CNY, работа на любых устройствах.</p>
+                        <div class="case-tech"><span>HTML5</span><span>CSS3</span><span>JS</span><span>REST API</span></div>
+                        <div class="case-links"><a href="https://fliperrsv.github.io/currency-converter/" target="_blank" class="btn-demo">🔗 Демо</a><a href="https://github.com/fliperrsv/currency-converter" target="_blank" class="btn-demo">📁 Код</a></div>
+                    </div>
+                </div>
+
+                <!-- 5. Генератор паролей -->
+                <div class="case-card">
+                    <div class="case-gallery"><img src="pass0.jpg" alt="Генератор паролей"></div>
+                    <div class="case-info">
+                        <h3>SecurePass — генератор паролей</h3>
+                        <p class="case-problem"><strong>❓ Задача:</strong> создать удобный инструмент для генерации сложных паролей с настройками.</p>
+                        <p class="case-solution"><strong>💡 Решение:</strong> слайдер длины, выбор типов символов, оценка надёжности, копирование в буфер, тёмная тема.</p>
+                        <p class="case-result"><strong>🚀 Результат:</strong> генерация за 0.1 сек, 4 уровня сложности, сохранение настроек.</p>
+                        <div class="case-tech"><span>HTML5</span><span>CSS3</span><span>JS</span></div>
+                        <div class="case-links"><a href="https://fliperrsv.github.io/password-generator/" target="_blank" class="btn-demo">🔗 Демо</a><a href="https://github.com/fliperrsv/password-generator" target="_blank" class="btn-demo">📁 Код</a></div>
+                    </div>
+                </div>
+
+                <!-- 6. Финансовый трекер -->
+                <div class="case-card">
+                    <div class="case-gallery"><img src="ras0.jpg" alt="Трекер 1"><img src="ras1.jpg" alt="Трекер 2"></div>
+                    <div class="case-info">
+                        <h3>Финансовый трекер (Vue.js)</h3>
+                        <p class="case-problem"><strong>❓ Задача:</strong> разработать SPA для учёта доходов и расходов с графиком и фильтрацией.</p>
+                        <p class="case-solution"><strong>💡 Решение:</strong> Vue 3 (Composition API), Chart.js, localStorage, тёмная тема, адаптив.</p>
+                        <p class="case-result"><strong>🚀 Результат:</strong> интерактивная круговая диаграмма, удобное добавление операций, сохранение всех данных в браузере.</p>
+                        <div class="case-tech"><span>Vue 3</span><span>Chart.js</span><span>JS</span><span>LocalStorage</span></div>
+                        <div class="case-links"><a href="https://fliperrsv.github.io/expense-tracker/" target="_blank" class="btn-demo">🔗 Демо</a><a href="https://github.com/fliperrsv/expense-tracker" target="_blank" class="btn-demo">📁 Код</a></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Навыки -->
     <section id="skills" class="skills-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Технологии и инструменты</h2>
-                <p>С чем я работаю и что постоянно изучаю</p>
-            </div>
+            <div class="section-header"><h2>Технологии</h2><p>Инструменты, которые я использую в работе</p></div>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Frontend</h3>
+                <div class="skill-category"><h3>Frontend</h3>
                     <div class="skill-items">
-                        <div class="skill-item" data-skill="html"><span>HTML5</span><div class="skill-progress"><div class="skill-progress-bar" style="width: 90%;"></div></div></div>
-                        <div class="skill-item" data-skill="css"><span>CSS3 / SCSS</span><div class="skill-progress"><div class="skill-progress-bar" style="width: 85%;"></div></div></div>
-                        <div class="skill-item" data-skill="js"><span>JavaScript (ES6+)</span><div class="skill-progress"><div class="skill-progress-bar" style="width: 75%;"></div></div></div>
-                        <div class="skill-item" data-skill="react"><span>React (изучаю)</span><div class="skill-progress"><div class="skill-progress-bar" style="width: 50%;"></div></div></div>
+                        <div class="skill-item"><span>HTML5 / CSS3</span><div class="skill-progress"><div class="skill-progress-bar" style="width:90%"></div></div></div>
+                        <div class="skill-item"><span>JavaScript (ES6+)</span><div class="skill-progress"><div class="skill-progress-bar" style="width:80%"></div></div></div>
+                        <div class="skill-item"><span>Vue.js 3</span><div class="skill-progress"><div class="skill-progress-bar" style="width:70%"></div></div></div>
+                        <div class="skill-item"><span>React (изучаю)</span><div class="skill-progress"><div class="skill-progress-bar" style="width:50%"></div></div></div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-server"></i> Backend & Другое</h3>
+                <div class="skill-category"><h3>Backend & Другое</h3>
                     <div class="skill-items">
-                        <div class="skill-item" data-skill="python"><span>Python / Flask</span><div class="skill-progress"><div class="skill-progress-bar" style="width: 70%;"></div></div></div>
-                        <div class="skill-item" data-skill="aiogram"><span>Aiogram (Telegram bots)</span><div class="skill-progress"><div class="skill-progress-bar" style="width: 75%;"></div></div></div>
-                        <div class="skill-item" data-skill="git"><span>Git & GitHub</span><div class="skill-progress"><div class="skill-progress-bar" style="width: 85%;"></div></div></div>
-                        <div class="skill-item" data-skill="api"><span>REST API / SQLite</span><div class="skill-progress"><div class="skill-progress-bar" style="width: 70%;"></div></div></div>
+                        <div class="skill-item"><span>Python / Flask</span><div class="skill-progress"><div class="skill-progress-bar" style="width:70%"></div></div></div>
+                        <div class="skill-item"><span>Aiogram (Telegram)</span><div class="skill-progress"><div class="skill-progress-bar" style="width:75%"></div></div></div>
+                        <div class="skill-item"><span>Git & GitHub</span><div class="skill-progress"><div class="skill-progress-bar" style="width:85%"></div></div></div>
+                        <div class="skill-item"><span>SQLite / REST API</span><div class="skill-progress"><div class="skill-progress-bar" style="width:70%"></div></div></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Обо мне -->
     <section id="about" class="about">
         <div class="container about-container">
-            <div class="about-photo">
-                <div class="photo-frame">
-                    <img src="IMG_20240902_110506_091.jpg" alt="Сергей Резунков" loading="lazy">
-                </div>
-            </div>
+            <div class="about-photo"><div class="photo-frame"><img src="IMG_20240902_110506_091.jpg" alt="Сергей Резунков"></div></div>
             <div class="about-content">
                 <h2>Обо мне</h2>
-                <p>Привет! Меня зовут <strong>Сергей Резунков</strong>, я веб-разработчик с опытом создания современных сайтов и Telegram-ботов.</p>
-                <p>Моя цель — помогать бизнесу расти через качественные цифровые продукты. Работаю на результат, соблюдаю сроки, даю гарантию.</p>
-                <div class="coding-stats">
-                    <div class="stat-card"><i class="fas fa-code"></i> 500+ часов кода</div>
-                    <div class="stat-card"><i class="fas fa-check-circle"></i> 8+ выполненных проектов</div>
-                    <div class="stat-card"><i class="fas fa-smile"></i> 100% довольных клиентов</div>
-                </div>
-                <div class="about-links">
-                    <a href="Resume_Sergey_Rezunkov.pdf" class="btn-resume" download><i class="fas fa-file-pdf"></i> Скачать резюме</a>
-                    <a href="https://github.com/fliperrsv" target="_blank" class="btn-github"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://t.me/fliperrsv1" target="_blank" class="btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
-                </div>
+                <p>Привет! Меня зовут <strong>Сергей Резунков</strong>, я веб-разработчик. Создаю современные сайты, веб-приложения и Telegram-ботов под ключ.</p>
+                <p>Моя цель — помогать бизнесу расти через качественные цифровые продукты. Работаю на результат, соблюдаю сроки, даю гарантию на вёрстку.</p>
+                <div class="coding-stats"><div class="stat-card"><i class="fas fa-code"></i> 1000+ часов кода</div><div class="stat-card"><i class="fas fa-check-circle"></i> 6+ проектов</div><div class="stat-card"><i class="fas fa-smile"></i> 100% довольных клиентов</div></div>
+                <div class="about-links"><a href="Resume_Sergey_Rezunkov.pdf" class="btn-resume" download><i class="fas fa-file-pdf"></i> Скачать резюме</a><a href="https://github.com/fliperrsv" target="_blank" class="btn-github"><i class="fab fa-github"></i> GitHub</a><a href="https://t.me/fliperrsv1" target="_blank" class="btn-telegram"><i class="fab fa-telegram"></i> Telegram</a></div>
             </div>
         </div>
     </section>
 
-    <!-- Reviews Section -->
+    <!-- Отзывы -->
     <section id="reviews" class="reviews">
         <div class="container">
-            <div class="section-header">
-                <h2>Отзывы клиентов</h2>
-                <p>Что говорят обо мне те, для кого я работал</p>
+            <div class="section-header"><h2>Отзывы</h2><p>Что говорят клиенты</p></div>
+            <div class="reviews-grid">
+                <div class="review-card"><div class="review-header"><span class="review-author">Алексей, владелец студии</span><span class="review-rating">★★★★★</span></div><div class="review-text">Сергей разработал лендинг для моей студии – всё быстро, чётко, с учётом пожеланий. Рекомендую!</div><div class="review-date">май 2025</div></div>
+                <div class="review-card"><div class="review-header"><span class="review-author">Екатерина, SMM-менеджер</span><span class="review-rating">★★★★★</span></div><div class="review-text">Заказала Telegram-бота для сбора заявок. Сергей сделал качественно, объяснил, как управлять. Отличный результат!</div><div class="review-date">июнь 2025</div></div>
+                <div class="review-card"><div class="review-header"><span class="review-author">Дмитрий, предприниматель</span><span class="review-rating">★★★★★</span></div><div class="review-text">Портфолио и проекты впечатляют. Заказывал конвертер валют – работает отлично, быстро, без нареканий.</div><div class="review-date">август 2025</div></div>
             </div>
-            <div id="reviews-list" class="reviews-grid">
-                <div class="review-card skeleton">
-                    <div class="skeleton-header"></div>
-                    <div class="skeleton-text"></div>
-                    <div class="skeleton-text short"></div>
-                </div>
-                <div class="review-card skeleton">
-                    <div class="skeleton-header"></div>
-                    <div class="skeleton-text"></div>
-                    <div class="skeleton-text short"></div>
-                </div>
-            </div>
-            <div class="review-form-wrapper">
-                <h3>Оставьте свой отзыв</h3>
-                <form id="reviewForm">
-                    <div class="form-group"><input type="text" id="reviewName" placeholder="Ваше имя" required></div>
-                    <div class="form-group"><textarea id="reviewText" rows="3" placeholder="Ваш отзыв" required></textarea></div>
-                    <div class="rating-group">
-                        <label>Оценка:</label>
-                        <div class="stars" id="starRating">
-                            <i class="far fa-star" data-value="1"></i>
-                            <i class="far fa-star" data-value="2"></i>
-                            <i class="far fa-star" data-value="3"></i>
-                            <i class="far fa-star" data-value="4"></i>
-                            <i class="far fa-star" data-value="5"></i>
-                        </div>
-                        <input type="hidden" id="reviewRating" value="5">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Отправить отзыв</button>
-                    <div id="reviewFormStatus" class="form-status"></div>
-                </form>
-            </div>
+            <div class="review-form-wrapper"><h3>Оставить отзыв</h3><form id="reviewForm"><div class="form-group"><input type="text" id="reviewName" placeholder="Ваше имя" required></div><div class="form-group"><textarea id="reviewText" rows="3" placeholder="Ваш отзыв" required></textarea></div><div class="rating-group"><label>Оценка:</label><select id="reviewRating"><option value="5">★★★★★ (5)</option><option value="4">★★★★☆ (4)</option><option value="3">★★★☆☆ (3)</option><option value="2">★★☆☆☆ (2)</option><option value="1">★☆☆☆☆ (1)</option></select></div><button type="submit" class="btn btn-primary">Отправить отзыв</button><div id="reviewFormStatus" class="form-status"></div></form></div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Контакты -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-header">
-                <h2>Свяжитесь со мной</h2>
-                <p>Готов обсудить ваш проект</p>
-            </div>
+            <div class="section-header"><h2>Контакты</h2><p>Давайте обсудим ваш проект</p></div>
             <div class="contact-wrapper">
-                <form id="contactForm" class="contact-form">
-                    <div class="form-group"><input type="text" id="contactName" placeholder="Ваше имя" required><i class="fas fa-user"></i></div>
-                    <div class="form-group"><input type="email" id="contactEmail" placeholder="Email" required><i class="fas fa-envelope"></i></div>
-                    <div class="form-group"><textarea id="contactMessage" rows="4" placeholder="Опишите задачу или вопрос" required></textarea><i class="fas fa-pencil-alt"></i></div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Отправить сообщение</button>
-                    <div id="contactFormStatus" class="form-status"></div>
-                </form>
-                <div class="contact-info">
-                    <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:fliperrsv@yandex.ru">fliperrsv@yandex.ru</a></div>
-                    <div class="contact-item"><i class="fab fa-telegram-plane"></i><a href="https://t.me/fliperrsv1" target="_blank">@fliperrsv1</a></div>
-                    <div class="contact-item"><i class="fab fa-github"></i><a href="https://github.com/fliperrsv" target="_blank">GitHub</a></div>
-                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Москва, Россия</span></div>
-                </div>
+                <form id="contactForm" class="contact-form"><div class="form-group"><input type="text" id="contactName" placeholder="Ваше имя" required><i class="fas fa-user"></i></div><div class="form-group"><input type="email" id="contactEmail" placeholder="Email" required><i class="fas fa-envelope"></i></div><div class="form-group"><textarea id="contactMessage" rows="4" placeholder="Опишите задачу" required></textarea><i class="fas fa-pencil-alt"></i></div><button type="submit" class="btn btn-primary">Отправить <i class="fas fa-paper-plane"></i></button><div id="contactFormStatus" class="form-status"></div></form>
+                <div class="contact-info"><div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:fliperrsv@yandex.ru">fliperrsv@yandex.ru</a></div><div class="contact-item"><i class="fab fa-telegram-plane"></i><a href="https://t.me/fliperrsv1">@fliperrsv1</a></div><div class="contact-item"><i class="fab fa-github"></i><a href="https://github.com/fliperrsv">GitHub</a></div><div class="contact-item"><i class="fas fa-map-marker-alt"></i>Москва, Россия</div></div>
             </div>
         </div>
     </section>
 </main>
-
-<footer class="footer">
-    <div class="container">
-        <p>© 2025 Сергей Резунков | Веб-разработчик</p>
-        <div class="footer-links">
-            <a href="#home">Главная</a>
-            <a href="#portfolio">Портфолио</a>
-            <a href="#contact">Контакты</a>
-        </div>
-    </div>
-</footer>
-
-<!-- Modal for project details -->
-<div id="projectModal" class="modal">
-    <div class="modal-content">
-        <span class="modal-close" id="closeProjectModal">&times;</span>
-        <div id="modalBody"></div>
-    </div>
-</div>
-
+<footer class="footer"><div class="container"><p>© 2025 Сергей Резунков | Веб-разработчик</p><div class="footer-links"><a href="#home">Главная</a><a href="#cases">Кейсы</a><a href="#contact">Контакты</a></div></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
 <script src="script.js"></script>
-
-
-<script>
-    // Простой и надёжный прелоадер для телефона
-    (function() {
-        var preloader = document.getElementById('preloader');
-        if (preloader) {
-            // Скрываем прелоадер через 1.5 секунды
-            setTimeout(function() {
-                preloader.style.opacity = '0';
-                preloader.style.visibility = 'hidden';
-                setTimeout(function() {
-                    preloader.style.display = 'none';
-                }, 300);
-            }, 1000);
-        }
-    })();
-</script>
-    
 </body>
 </html>
