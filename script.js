@@ -1,4 +1,4 @@
-// ==================== ТЁМНАЯ ТЕМА ====================
+// Тёмная тема
 const themeToggle = document.getElementById('themeToggle');
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
@@ -13,7 +13,7 @@ themeToggle?.addEventListener('click', () => {
     }
 });
 
-// ==================== МОБИЛЬНОЕ МЕНЮ ====================
+// Мобильное меню
 const mobileBtn = document.querySelector('.mobile-menu-btn');
 const nav = document.querySelector('.nav');
 if (mobileBtn && nav) {
@@ -37,7 +37,7 @@ if (mobileBtn && nav) {
     });
 }
 
-// ==================== АНИМАЦИЯ СЧЁТЧИКОВ ====================
+// Анимация счётчиков
 const statNumbers = document.querySelectorAll('.stat-number');
 const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -61,8 +61,8 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 statNumbers.forEach(el => counterObserver.observe(el));
 
-// ==================== АНИМАЦИЯ ПОЯВЛЕНИЯ ====================
-const animatedElements = document.querySelectorAll('.hero, .case-card, .about-container, .contact-wrapper, .skill-category, .review-card');
+// Анимация появления элементов
+const animatedElements = document.querySelectorAll('.hero, .case-card, .mission-card, .skill-category, .about-container, .blog-card, .review-card');
 const appearObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -76,7 +76,7 @@ animatedElements.forEach(el => {
     appearObserver.observe(el);
 });
 
-// ==================== СКРЫТИЕ ХЕДЕРА ПРИ СКРОЛЛЕ ====================
+// Скрытие хедера при скролле
 let lastScroll = 0;
 const header = document.querySelector('.header');
 window.addEventListener('scroll', () => {
@@ -90,7 +90,7 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// ==================== ФОРМА ОБРАТНОЙ СВЯЗИ (имитация) ====================
+// Форма обратной связи (имитация)
 const contactForm = document.getElementById('contactForm');
 const contactStatus = document.getElementById('contactFormStatus');
 if (contactForm) {
@@ -116,74 +116,23 @@ if (contactForm) {
     });
 }
 
-// ==================== ОТЗЫВЫ (Google Sheets – заглушка, можно заменить на свои ссылки) ====================
-const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/ВАШ_СКРИПТ/exec';
-const GOOGLE_SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/ВАШ_ID/export?format=csv';
-async function loadReviews() {
-    const container = document.getElementById('reviews-list');
-    if (!container) return;
-    try {
-        const response = await fetch(GOOGLE_SHEETS_CSV_URL);
-        if (!response.ok) throw new Error();
-        const csvText = await response.text();
-        const rows = csvText.split('\n').slice(1);
-        const reviews = [];
-        for (let row of rows) {
-            if (!row.trim()) continue;
-            const cols = row.match(/(".*?"|[^,]+)(?=\s*,|\s*$)/g);
-            if (cols && cols.length >= 3) {
-                const name = cols[1]?.replace(/"/g, '') || '';
-                const text = cols[2]?.replace(/"/g, '') || '';
-                const rating = parseInt(cols[3]) || 5;
-                if (name && text) reviews.push({ name, text, rating });
-            }
-        }
-        reviews.reverse();
-        if (reviews.length === 0) {
-            container.innerHTML = '<p style="text-align: center;">Пока нет отзывов. Будьте первым!</p>';
-        } else {
-            container.innerHTML = reviews.map(rev => `
-                <div class="review-card">
-                    <div class="review-header"><span class="review-author">${escapeHtml(rev.name)}</span><span class="review-rating">${'★'.repeat(rev.rating)}${'☆'.repeat(5-rev.rating)}</span></div>
-                    <div class="review-text">${escapeHtml(rev.text)}</div>
-                    <div class="review-date">недавно</div>
-                </div>
-            `).join('');
-        }
-    } catch (e) {
-        console.warn('Отзывы не загружены (используется заглушка)');
-        container.innerHTML = '<p style="text-align: center;">Отзывы появятся скоро. Оставьте свой!</p>';
-    }
-}
-function escapeHtml(str) {
-    return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : (m === '<' ? '&lt;' : '&gt;')).replace(/\n/g, '<br>');
-}
+// Форма отзывов (имитация, можно заменить на Google Sheets)
 const reviewForm = document.getElementById('reviewForm');
+const reviewStatus = document.getElementById('reviewFormStatus');
 if (reviewForm) {
-    reviewForm.addEventListener('submit', async (e) => {
+    reviewForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const name = document.getElementById('reviewName').value.trim();
         const text = document.getElementById('reviewText').value.trim();
-        const rating = document.getElementById('reviewRating').value;
-        const statusDiv = document.getElementById('reviewFormStatus');
         if (!name || !text) {
-            statusDiv.innerHTML = '<span style="color:#ff6b4a;">Заполните имя и отзыв</span>';
+            reviewStatus.innerHTML = '<span style="color:#ff6b4a;">Заполните имя и отзыв</span>';
             return;
         }
-        statusDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
-        try {
-            await fetch(GOOGLE_APPS_SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, text, rating }) });
-            statusDiv.innerHTML = '<span style="color:#4ade80;">✅ Спасибо! Отзыв будет опубликован после проверки.</span>';
+        reviewStatus.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+        setTimeout(() => {
+            reviewStatus.innerHTML = '<span style="color:#4ade80;">✅ Спасибо! Отзыв будет опубликован после проверки.</span>';
             reviewForm.reset();
-            setTimeout(loadReviews, 2000);
-        } catch (error) {
-            statusDiv.innerHTML = '<span style="color:#ff6b4a;">❌ Ошибка, попробуйте позже.</span>';
-        }
+            setTimeout(() => reviewStatus.innerHTML = '', 3000);
+        }, 1000);
     });
 }
-if (document.getElementById('reviews-list')) loadReviews();
-
-// Дополнительно: добавим стили для анимации, которых ещё нет
-const style = document.createElement('style');
-style.textContent = `.fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; } .fade-up.appear { opacity: 1; transform: translateY(0); }`;
-document.head.appendChild(style);
