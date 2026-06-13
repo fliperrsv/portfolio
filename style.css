@@ -201,6 +201,15 @@ body {
     transform: translateY(-2px);
     filter: brightness(1.05);
 }
+.pulse-btn {
+    animation: pulse 1.5s infinite;
+    background: var(--gradient);
+}
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 1; }
+}
 .btn-outline {
     border: 1px solid var(--border);
     background: transparent;
@@ -323,6 +332,10 @@ body {
     margin-bottom: 12px;
     color: var(--text-secondary);
 }
+.case-stat {
+    font-weight: 600;
+    color: var(--accent);
+}
 .case-tech {
     display: flex;
     flex-wrap: wrap;
@@ -350,10 +363,42 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    font-size: 0.875rem;
 }
 
-/* Skills */
-.skills-section { padding: 80px 0; background: var(--bg-primary); }
+/* Мой подход */
+.mission {
+    padding: 80px 0;
+    background: var(--bg-primary);
+}
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+.mission-card {
+    background: var(--bg-card);
+    border-radius: 28px;
+    padding: 30px 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--border);
+}
+.mission-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+.mission-card i {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 16px;
+}
+.mission-card h3 {
+    margin-bottom: 12px;
+}
+
+/* Навыки */
+.skills-section { padding: 80px 0; background: var(--bg-secondary); }
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -390,8 +435,8 @@ body {
     transition: width 1s ease-out;
 }
 
-/* About */
-.about { padding: 80px 0; background: var(--bg-secondary); }
+/* Обо мне */
+.about { padding: 80px 0; background: var(--bg-primary); }
 .about-container {
     display: flex;
     gap: 48px;
@@ -453,7 +498,41 @@ body {
 .btn-telegram { background: #0088cc; color: white; }
 .btn-telegram:hover { background: #006699; transform: translateY(-2px); }
 
-/* Reviews */
+/* Блог */
+.blog {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.blog-card {
+    background: var(--bg-card);
+    border-radius: 28px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+.blog-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+.read-more {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 16px;
+}
+.read-more:hover { text-decoration: underline; }
+
+/* Отзывы */
 .reviews { padding: 80px 0; background: var(--bg-primary); }
 .reviews-grid {
     display: grid;
@@ -505,7 +584,7 @@ body {
 }
 .form-status { margin-top: 12px; font-size: 0.85rem; text-align: center; }
 
-/* Contact */
+/* Контакты */
 .contact { padding: 80px 0; background: var(--bg-secondary); }
 .contact-wrapper {
     display: flex;
@@ -580,7 +659,7 @@ body {
 }
 .footer-links a:hover { color: var(--accent); }
 
-/* Animations */
+/* Анимации */
 .fade-up {
     opacity: 0;
     transform: translateY(30px);
@@ -616,6 +695,8 @@ body {
     .skills-grid { grid-template-columns: 1fr; }
     .about-container, .contact-wrapper { flex-direction: column; }
     .reviews-grid { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .mission-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
     .case-gallery img { max-width: 45%; }
