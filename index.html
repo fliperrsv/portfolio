@@ -13,6 +13,9 @@
     <meta property="og:image" content="https://fliperrsv.github.io/portfolio/og-image.jpg">
     <meta property="og:url" content="https://fliperrsv.github.io/portfolio/">
     <meta name="twitter:card" content="summary_large_image">
+    <!-- Favicon (замени на свои файлы при желании) -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -31,6 +34,7 @@
             <a href="#skills" class="nav-link">Навыки</a>
             <a href="#about" class="nav-link">Обо мне</a>
             <a href="#blog" class="nav-link">Блог</a>
+            <a href="#cta" class="nav-link">Сотрудничество</a>
             <a href="#contact" class="nav-link">Контакты</a>
             <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
         </nav>
@@ -38,7 +42,7 @@
 </header>
 
 <main>
-    <!-- Hero Section – продающий заголовок и кнопка -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container hero-container">
             <div class="hero-content">
@@ -68,7 +72,7 @@
         <div class="hero-shape"><svg viewBox="0 0 1440 120"><path d="M0,0 C300,100 600,0 1440,50 L1440,120 L0,120 Z" fill="url(#gradientShape)"/><defs><linearGradient id="gradientShape" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ff6b4a"/><stop offset="100%" stop-color="#ff8a5c"/></linearGradient></defs></svg></div>
     </section>
 
-    <!-- Кейсы с реальными цифрами -->
+    <!-- Кейсы -->
     <section id="cases" class="cases">
         <div class="container">
             <div class="section-header">
@@ -106,7 +110,7 @@
                 </div>
                 <!-- Telegram-бот -->
                 <div class="case-card">
-                    <div class="case-gallery"><img src="bot0.jpg" alt="Telegram бот"></div>
+                    <div class="case-gallery"><img src="bot0.jpg" alt="Telegram бот" style="max-width:100%"></div>
                     <div class="case-info">
                         <h3>SergDevBot – Telegram-помощник</h3>
                         <p><strong>❓ Задача:</strong> многофункциональный бот с БД и рассылками.</p>
@@ -130,7 +134,7 @@
                 </div>
                 <!-- Генератор паролей -->
                 <div class="case-card">
-                    <div class="case-gallery"><img src="pass0.jpg" alt="Генератор паролей"></div>
+                    <div class="case-gallery"><img src="pass0.jpg" alt="Генератор паролей" style="max-width:100%"></div>
                     <div class="case-info">
                         <h3>SecurePass – генератор паролей</h3>
                         <p><strong>❓ Задача:</strong> создать инструмент для генерации сложных паролей.</p>
@@ -156,7 +160,7 @@
         </div>
     </section>
 
-    <!-- Мой подход (миссия) -->
+    <!-- Мой подход -->
     <section id="mission" class="mission">
         <div class="container">
             <div class="section-header">
@@ -196,7 +200,7 @@
         </div>
     </section>
 
-    <!-- Обо мне с фото -->
+    <!-- Обо мне -->
     <section id="about" class="about">
         <div class="container about-container">
             <div class="about-photo"><div class="photo-frame"><img src="IMG_20240902_110506_091.jpg" alt="Сергей Резунков"></div></div>
@@ -218,7 +222,7 @@
         </div>
     </section>
 
-    <!-- Блог / мысли -->
+    <!-- Блог -->
     <section id="blog" class="blog">
         <div class="container">
             <div class="section-header"><h2>Мои мысли</h2><p>Как я вижу веб-разработку</p></div>
@@ -237,7 +241,7 @@
         </div>
     </section>
 
-    <!-- Отзывы (примеры) -->
+    <!-- Отзывы -->
     <section id="reviews" class="reviews">
         <div class="container">
             <div class="section-header"><h2>Отзывы клиентов</h2><p>Что говорят обо мне те, для кого я работал</p></div>
@@ -247,6 +251,15 @@
                 <div class="review-card"><div class="review-header"><span class="review-author">Дмитрий, стоматология</span><span class="review-rating">★★★★★</span></div><div class="review-text">Адаптировал старый сайт под телефон – теперь клиенты не уходят. Работа выполнена качественно и быстро.</div><div class="review-date">август 2025</div></div>
             </div>
             <div class="review-form-wrapper"><h3>Оставить отзыв</h3><form id="reviewForm"><div class="form-group"><input type="text" id="reviewName" placeholder="Ваше имя" required></div><div class="form-group"><textarea id="reviewText" rows="3" placeholder="Ваш отзыв" required></textarea></div><div class="rating-group"><label>Оценка:</label><select id="reviewRating"><option value="5">★★★★★ (5)</option><option value="4">★★★★☆ (4)</option><option value="3">★★★☆☆ (3)</option><option value="2">★★☆☆☆ (2)</option><option value="1">★☆☆☆☆ (1)</option></select></div><button type="submit" class="btn btn-primary">Отправить отзыв</button><div id="reviewFormStatus" class="form-status"></div></form></div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <h2>Готовы обсудить ваш проект?</h2>
+            <p>Давайте вместе построим что-то великое. Я открыт для фриланса и удалённой работы.</p>
+            <a href="https://t.me/fliperrsv1" class="btn cta-btn">Связаться в Telegram</a>
         </div>
     </section>
 
