@@ -25,7 +25,11 @@ if (mobileBtn && nav) {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             nav.classList.remove('active');
-            if (mobileBtn.querySelector('i')) mobileBtn.querySelector('i').classList.add('fa-bars');
+            const icon = mobileBtn.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
     });
     document.addEventListener('click', (e) => {
@@ -62,7 +66,7 @@ const counterObserver = new IntersectionObserver((entries) => {
 statNumbers.forEach(el => counterObserver.observe(el));
 
 // Анимация появления элементов
-const animatedElements = document.querySelectorAll('.hero, .case-card, .mission-card, .skill-category, .about-container, .blog-card, .review-card');
+const animatedElements = document.querySelectorAll('.hero, .case-card, .mission-card, .skill-category, .about-container, .blog-card, .review-card, .cta-section');
 const appearObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -116,7 +120,7 @@ if (contactForm) {
     });
 }
 
-// Форма отзывов (имитация, можно заменить на Google Sheets)
+// Форма отзывов (имитация)
 const reviewForm = document.getElementById('reviewForm');
 const reviewStatus = document.getElementById('reviewFormStatus');
 if (reviewForm) {
