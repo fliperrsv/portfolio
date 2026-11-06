@@ -10,7 +10,6 @@
     <meta name="keywords" content="веб-разработчик, создание сайтов, лендинг, телеграм бот, vue.js, портфолио разработчика, заказать сайт">
     <meta name="author" content="Сергей Резунков">
 
-    <!-- Канонический URL и соцсети — теперь на основной домен -->
     <link rel="canonical" href="https://srezunkov.tech/">
     <meta property="og:title" content="Сергей Резунков | Веб-разработчик">
     <meta property="og:description" content="Создаю сайты и Telegram-ботов под ключ. Примеры работ и отзывы.">
@@ -20,7 +19,6 @@
     <meta property="og:locale" content="ru_RU">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Структурированные данные для Google -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -38,16 +36,13 @@
     }
     </script>
 
-    <!-- Предзагрузка LCP-фото -->
     <link rel="preload" as="image" href="IMG_20240902_110506_091.jpg" fetchpriority="high">
 
-    <!-- Шрифты: только реально используемые начертания -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome: загрузка без блокировки рендера -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'; this.onload=null;">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
 
@@ -67,11 +62,9 @@
         <nav class="nav" id="primary-nav" aria-label="Основная навигация">
             <a href="#home" class="nav-link">Главная</a>
             <a href="#cases" class="nav-link">Кейсы</a>
-            <a href="#mission" class="nav-link">Мой подход</a>
+            <a href="#mission" class="nav-link">Подход</a>
             <a href="#skills" class="nav-link">Навыки</a>
             <a href="#about" class="nav-link">Обо мне</a>
-            <a href="#blog" class="nav-link">Блог</a>
-            <a href="#cta" class="nav-link">Сотрудничество</a>
             <a href="#contact" class="nav-link">Контакты</a>
             <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
                 <i class="fas fa-moon" aria-hidden="true"></i>
@@ -87,14 +80,15 @@
                 <div class="hero-tag">Fullstack Developer</div>
                 <h1 id="hero-title" class="hero-title">Building <span class="gradient-text">Scalable Systems</span><br>& High-Performance <span class="gradient-text">Bots</span></h1>
                 <p class="hero-desc">Специализируюсь на React, NestJS и сложных Telegram-экосистемах. Создаю продукты, которые приносят реальные деньги.</p>
+                <p class="hero-desc-extra">Лендинги для бизнеса за 2–3 дня · Telegram-боты · Веб-приложения</p>
                 <div class="hero-stats">
                     <div class="stat"><span class="stat-number" data-target="2">0</span><span class="stat-label">года в IT</span></div>
-                    <div class="stat"><span class="stat-number" data-target="6">0</span><span class="stat-label">проектов</span></div>
+                    <div class="stat"><span class="stat-number" data-target="8">0</span><span class="stat-label">проектов</span></div>
                     <div class="stat"><span class="stat-number" data-target="12">0</span><span class="stat-label">клиентов</span></div>
                 </div>
                 <div class="hero-buttons">
                     <a href="#cases" class="btn btn-primary"><i class="fas fa-arrow-down" aria-hidden="true"></i> Смотреть кейсы</a>
-                    <a href="#contact" class="btn btn-primary pulse-btn"><i class="fas fa-fire" aria-hidden="true"></i> Заказать прорыв</a>
+                    <a href="#contact" class="btn btn-primary pulse-btn"><i class="fas fa-fire" aria-hidden="true"></i> Заказать проект</a>
                     <a href="#contact" class="btn btn-outline">Связаться <i class="fas fa-paper-plane" aria-hidden="true"></i></a>
                 </div>
             </div>
@@ -114,6 +108,34 @@
         <div class="container">
             <div class="section-header"><h2 id="cases-title">Мои кейсы</h2><p>Реальные проекты – результат, а не просто картинка</p></div>
             <div class="cases-grid">
+                <article class="case-card">
+                    <div class="case-gallery">
+                        <img src="barber-1.jpg" alt="Главный экран сайта барбершопа «Бритва»" width="300" height="200" loading="lazy" decoding="async">
+                        <img src="barber-2.jpg" alt="Прайс и секция записи на сайте барбершопа" width="300" height="200" loading="lazy" decoding="async">
+                    </div>
+                    <div class="case-info">
+                        <h3>Сайт барбершопа «Бритва»</h3>
+                        <p><strong>❓ Задача:</strong> сайт под запрос реального заказчика — прайс, мастера, онлайн-запись.</p>
+                        <p><strong>💡 Решение:</strong> тёмный дизайн с латунными акцентами, прелоадер, бегущая строка, полная адаптивность.</p>
+                        <p><strong>🚀 Результат:</strong> <span class="case-stat">первый коммерческий заказ</span> — от макета до публикации за 3 дня.</p>
+                        <div class="case-tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>YClients</span></div>
+                        <div class="case-links"><a href="https://fliperrsv.github.io/barbershop/" target="_blank" class="btn-demo" rel="noopener noreferrer">🔗 Демо</a><a href="https://github.com/fliperrsv/barbershop" target="_blank" class="btn-demo" rel="noopener noreferrer">📁 Код</a></div>
+                    </div>
+                </article>
+                <article class="case-card">
+                    <div class="case-gallery">
+                        <img src="coffee-1.jpg" alt="Главный экран лендинга кофейни «Берёза»" width="300" height="200" loading="lazy" decoding="async">
+                        <img src="coffee-2.jpg" alt="Меню на сайте кофейни «Берёза»" width="300" height="200" loading="lazy" decoding="async">
+                    </div>
+                    <div class="case-info">
+                        <h3>Лендинг кофейни «Берёза»</h3>
+                        <p><strong>❓ Задача:</strong> промо-сайт кофейни — меню, атмосфера, заказ столика.</p>
+                        <p><strong>💡 Решение:</strong> одностраничник с адаптивной вёрсткой, анимациями и собственными изображениями.</p>
+                        <p><strong>🚀 Результат:</strong> <span class="case-stat">живой сайт за 2 дня</span> — открытые демо и код.</p>
+                        <div class="case-tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>GitHub Pages</span></div>
+                        <div class="case-links"><a href="https://fliperrsv.github.io/coffee/" target="_blank" class="btn-demo" rel="noopener noreferrer">🔗 Демо</a><a href="https://github.com/fliperrsv/coffee" target="_blank" class="btn-demo" rel="noopener noreferrer">📁 Код</a></div>
+                    </div>
+                </article>
                 <article class="case-card">
                     <div class="case-gallery">
                         <img src="Screenshot_20260603-230956.jpg" alt="Главный экран Weatherly с текущей температурой и геолокацией" width="300" height="200" loading="lazy" decoding="async">
@@ -217,157 +239,22 @@
             <div class="skills-grid">
                 <div class="skill-category"><h3>Frontend</h3>
                     <div class="skill-items">
-                        <div class="skill-item"><span>HTML5 / CSS3</span><div class="skill-progress" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><div class="skill-progress-bar" style="--progress:90%"></div></div></div>
-                        <div class="skill-item"><span>JavaScript (ES6+)</span><div class="skill-progress" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><div class="skill-progress-bar" style="--progress:80%"></div></div></div>
-                        <div class="skill-item"><span>Vue.js 3</span><div class="skill-progress" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><div class="skill-progress-bar" style="--progress:70%"></div></div></div>
-                        <div class="skill-item"><span>React (изучаю)</span><div class="skill-progress" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><div class="skill-progress-bar" style="--progress:50%"></div></div></div>
+                        <div class="skill-item"><span>HTML5 / CSS3</span></div>
+                        <div class="skill-item"><span>JavaScript (ES6+)</span></div>
+                        <div class="skill-item"><span>Vue.js 3</span></div>
+                        <div class="skill-item"><span>React <em class="skill-note">изучаю</em></span></div>
                     </div>
                 </div>
                 <div class="skill-category"><h3>Backend & Другое</h3>
                     <div class="skill-items">
-                        <div class="skill-item"><span>Python / Flask</span><div class="skill-progress" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><div class="skill-progress-bar" style="--progress:70%"></div></div></div>
-                        <div class="skill-item"><span>Aiogram (Telegram)</span><div class="skill-progress" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="skill-progress-bar" style="--progress:75%"></div></div></div>
-                        <div class="skill-item"><span>Git & GitHub</span><div class="skill-progress" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><div class="skill-progress-bar" style="--progress:85%"></div></div></div>
-                        <div class="skill-item"><span>SQLite / REST API</span><div class="skill-progress" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><div class="skill-progress-bar" style="--progress:70%"></div></div></div>
+                        <div class="skill-item"><span>Python / Flask</span></div>
+                        <div class="skill-item"><span>Aiogram (Telegram)</span></div>
+                        <div class="skill-item"><span>Git & GitHub</span></div>
+                        <div class="skill-item"><span>SQLite / REST API</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about" aria-labelledby="about-title">
-        <div class="container about-container">
-            <div class="about-photo"><div class="photo-frame"><img src="IMG_20240902_110506_091.jpg" alt="Портрет Сергея Резункова, веб-разработчика" width="350" height="350" fetchpriority="high"></div></div>
-            <div class="about-content">
-                <h2 id="about-title">Обо мне</h2>
-                <p>Привет! Меня зовут <strong>Сергей Резунков</strong>, я веб-разработчик (Junior+). Создаю современные сайты, веб-приложения и Telegram-ботов под ключ.</p>
-                <p>Мой стек: HTML5, CSS3, JavaScript (ES6+), Vue.js, Python (Flask), Aiogram, Git. Постоянно учусь и развиваюсь.</p>
-                <div class="coding-stats">
-                    <div class="stat-card"><i class="fas fa-code" aria-hidden="true"></i> 1000+ часов кода</div>
-                    <div class="stat-card"><i class="fas fa-check-circle" aria-hidden="true"></i> 6+ успешных проектов</div>
-                    <div class="stat-card"><i class="fas fa-smile" aria-hidden="true"></i> 100% довольных клиентов</div>
-                </div>
-                <div class="about-links">
-                    <a href="Resume_Sergey_Rezunkov.pdf" class="btn-resume" download><i class="fas fa-file-pdf" aria-hidden="true"></i> Скачать резюме</a>
-                    <a href="https://github.com/fliperrsv" target="_blank" class="btn-github" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-                    <a href="https://t.me/fliperrsv1" target="_blank" class="btn-telegram" rel="noopener noreferrer"><i class="fab fa-telegram" aria-hidden="true"></i> Telegram</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="blog" class="blog" aria-labelledby="blog-title">
-        <div class="container">
-            <div class="section-header"><h2 id="blog-title">Мои мысли</h2><p>Как я вижу веб-разработку</p></div>
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <h3>Почему я выбрал Vue.js вместо React</h3>
-                    <p>Vue легче в освоении, а его документация – лучшее, что я читал. Плюс Composition API даёт гибкость и позволяет писать чистый код.</p>
-                    <span class="read-more read-more--soon">Скоро →</span>
-                </article>
-                <article class="blog-card">
-                    <h3>Как я набирал 1000+ часов кода за полгода</h3>
-                    <p>Ежедневная практика, pet-проекты и никакого «потом». Рассказываю, как превратить хобби в профессию.</p>
-                    <span class="read-more read-more--soon">Скоро →</span>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section id="reviews" class="reviews" aria-labelledby="reviews-title">
-        <div class="container">
-            <div class="section-header"><h2 id="reviews-title">Отзывы клиентов</h2><p>Что говорят обо мне те, для кого я работал</p></div>
-            <div class="reviews-grid">
-                <article class="review-card"><div class="review-header"><span class="review-author">Михаил, владелец пекарни</span><span class="review-rating" aria-label="Оценка 5 из 5">★★★★★</span></div><div class="review-text">Сергей сделал лендинг для моей пекарни за 3 дня. В первый же месяц +15 заявок через сайт! Спасибо!</div><div class="review-date">май 2025</div></article>
-                <article class="review-card"><div class="review-header"><span class="review-author">Анна, онлайн-школа</span><span class="review-rating" aria-label="Оценка 5 из 5">★★★★★</span></div><div class="review-text">Telegram-бот для автоответов сэкономил мне 10 часов в неделю. Рекомендую!</div><div class="review-date">июнь 2025</div></article>
-                <article class="review-card"><div class="review-header"><span class="review-author">Дмитрий, стоматология</span><span class="review-rating" aria-label="Оценка 5 из 5">★★★★★</span></div><div class="review-text">Адаптировал старый сайт под телефон – теперь клиенты не уходят. Работа выполнена качественно и быстро.</div><div class="review-date">август 2025</div></article>
-            </div>
-            <div class="review-form-wrapper">
-                <h3>Оставить отзыв</h3>
-                <form id="reviewForm" novalidate>
-                    <div class="form-group">
-                        <label for="reviewName" class="sr-only">Ваше имя</label>
-                        <input type="text" id="reviewName" name="name" placeholder="Ваше имя" autocomplete="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="reviewText" class="sr-only">Текст отзыва</label>
-                        <textarea id="reviewText" name="review" rows="3" placeholder="Ваш отзыв" required></textarea>
-                    </div>
-                    <div class="rating-group">
-                        <label for="reviewRating">Оценка:</label>
-                        <select id="reviewRating" name="rating">
-                            <option value="5">★★★★★ (5)</option>
-                            <option value="4">★★★★☆ (4)</option>
-                            <option value="3">★★★☆☆ (3)</option>
-                            <option value="2">★★☆☆☆ (2)</option>
-                            <option value="1">★☆☆☆☆ (1)</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Отправить отзыв</button>
-                    <div id="reviewFormStatus" class="form-status" role="status" aria-live="polite"></div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <section id="cta" class="cta-section" aria-labelledby="cta-title">
-        <div class="container">
-            <h2 id="cta-title">Готовы обсудить ваш проект?</h2>
-            <p>Давайте вместе построим что-то великое. Я открыт для фриланса и удалённой работы.</p>
-            <a href="https://t.me/fliperrsv1" class="btn cta-btn" rel="noopener noreferrer" target="_blank">Связаться в Telegram</a>
-        </div>
-    </section>
-
-    <section id="contact" class="contact" aria-labelledby="contact-title">
-        <div class="container">
-            <div class="section-header"><h2 id="contact-title">Контакты</h2><p>Давайте обсудим ваш проект</p></div>
-            <div class="contact-wrapper">
-                <form id="contactForm" class="contact-form" novalidate>
-                    <div class="form-group">
-                        <label for="contactName" class="sr-only">Ваше имя</label>
-                        <input type="text" id="contactName" name="name" placeholder="Ваше имя" autocomplete="name" required>
-                        <i class="fas fa-user" aria-hidden="true"></i>
-                    </div>
-                    <div class="form-group">
-                        <label for="contactEmail" class="sr-only">Email</label>
-                        <input type="email" id="contactEmail" name="email" placeholder="Email" autocomplete="email" required>
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                    </div>
-                    <div class="form-group">
-                        <label for="contactMessage" class="sr-only">Опишите задачу</label>
-                        <textarea id="contactMessage" name="message" rows="4" placeholder="Опишите задачу" required></textarea>
-                        <i class="fas fa-pencil-alt" aria-hidden="true"></i>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane" aria-hidden="true"></i> Отправить сообщение</button>
-                    <div id="contactFormStatus" class="form-status" role="status" aria-live="polite"></div>
-                </form>
-                <div class="contact-info">
-                    <div class="contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:fliperrsv@yandex.ru">fliperrsv@yandex.ru</a></div>
-                    <div class="contact-item"><i class="fab fa-telegram-plane" aria-hidden="true"></i><a href="https://t.me/fliperrsv1" rel="noopener noreferrer" target="_blank">@fliperrsv1</a></div>
-                    <div class="contact-item"><i class="fab fa-github" aria-hidden="true"></i><a href="https://github.com/fliperrsv" rel="noopener noreferrer" target="_blank">GitHub</a></div>
-                    <div class="contact-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Москва, Россия</div>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<div class="footer-cta">
-    <h2 class="footer-cta-title">LET'S WORK TOGETHER</h2>
-    <div class="footer-social">
-        <a href="https://t.me/fliperrsv1" class="social-icon telegram" aria-label="Telegram" rel="noopener noreferrer" target="_blank"><i class="fab fa-telegram-plane" aria-hidden="true"></i></a>
-        <a href="https://github.com/fliperrsv" class="social-icon github" aria-label="GitHub" rel="noopener noreferrer" target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a>
-        <a href="mailto:fliperrsv@yandex.ru" class="social-icon email" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-    </div>
-</div>
-
-<footer class="footer">
-    <div class="container">
-        <p>© 2025 Сергей Резунков | Веб-разработчик</p>
-        <div class="footer-links"><a href="#home">Главная</a><a href="#cases">Кейсы</a><a href="#contact">Контакты</a></div>
-    </div>
-</footer>
-
-<script src="script.js" defer></script>
-</body>
-</html>
+    <section id="about" class="about" aria-labelledby="abou
