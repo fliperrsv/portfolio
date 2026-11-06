@@ -7,6 +7,11 @@
   const $$ = (sel, root = document) => root.querySelectorAll(sel);
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // ========== НАСТРОЙКИ ==========
+  // Зарегистрируйтесь на formspree.io, создайте форму
+  // и вставьте сюда свой адрес вида https://formspree.io/f/xxxxxx
+  const FORMSPREE_URL = 'https://formspree.io/f/ВАШ_ID';
+
   // ========== ТЕМА ==========
   const themeToggle = $('#themeToggle');
   const themeIcon = themeToggle?.querySelector('i');
@@ -58,6 +63,7 @@
     $$('.nav-link').forEach((link) => {
       link.addEventListener('click', () => setMenu(false));
     });
+    // Клик мимо меню — закрываем
     document.addEventListener('click', (e) => {
       if (nav.classList.contains('active') && !nav.contains(e.target) && !menuBtn.contains(e.target)) {
         setMenu(false);
@@ -96,7 +102,7 @@
     document.addEventListener('mouseenter', () => cursor.style.opacity = '1');
 
     // Эффект "hover" — через делегирование, чтобы не плодить листенеры
-    const interactiveSelector = 'a, button, .btn, .case-card, .blog-card, .review-card, .social-icon';
+    const interactiveSelector = 'a, button, .btn, .case-card, .review-card, .social-icon';
     document.addEventListener('mouseover', (e) => {
       if (e.target.closest(interactiveSelector)) cursor.classList.add('hover');
     });
@@ -106,38 +112,36 @@
   }
 
   // ========== СЧЁТЧИКИ В HERO ==========
-  // Файл: script.js — блок "СЧЁТЧИКИ В HERO"
-const statNumbers = $$('.stat-number');
+  const statNumbers = $$('.stat-number');
 
-const animateCounter = (el) => {
-  const target = parseInt(el.dataset.target, 10);
-  if (isNaN(target)) return;
-  if (prefersReducedMotion) { el.textContent = target; return; }
+  const animateCounter = (el) => {
+    const target = parseInt(el.dataset.target, 10);
+    if (isNaN(target)) return;
+    if (prefersReducedMotion) { el.textContent = target; return; }
 
-  const duration = 1200;
-  const start = performance.now();
+    const duration = 1200;
+    const start = performance.now();
 
-  const tick = (now) => {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-    el.textContent = Math.floor(eased * target);
-    if (progress < 1) requestAnimationFrame(tick);
-    else el.textContent = target;
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      el.textContent = Math.floor(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    };
+    requestAnimationFrame(tick);
   };
-  requestAnimationFrame(tick);
-};
 
-// Hero виден сразу — запускаем без observer
-if (statNumbers.length) {
-  // Небольшая задержка, чтобы пользователь увидел "0 → N", а не сразу финал
-  setTimeout(() => {
-    statNumbers.forEach(animateCounter);
-  }, 300);
-}
+  // Hero виден сразу — запускаем без observer
+  if (statNumbers.length) {
+    // Небольшая задержка, чтобы пользователь увидел "0 → N", а не сразу финал
+    setTimeout(() => {
+      statNumbers.forEach(animateCounter);
+    }, 300);
+  }
 
-
-  // ========== АНИМАЦИЯ ПОЯВЛЕНИЯ + ПРОГРЕСС-БАРЫ ==========
-  const fadeTargets = $$('.hero, .case-card, .mission-card, .skill-category, .about-container, .blog-card, .review-card, .cta-section');
+  // ========== АНИМАЦИЯ ПОЯВЛЕНИЯ ==========
+  const fadeTargets = $$('.hero, .case-card, .mission-card, .skill-category, .about-container, .review-card, .cta-section');
   fadeTargets.forEach((el) => el.classList.add('fade-up'));
 
   if ('IntersectionObserver' in window) {
@@ -145,8 +149,6 @@ if (statNumbers.length) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('appear');
-          // Запускаем прогресс-бары внутри блока навыков
-          entry.target.querySelectorAll('.skill-progress-bar').forEach((bar) => bar.classList.add('animate'));
           observer.unobserve(entry.target);
         }
       });
@@ -154,9 +156,8 @@ if (statNumbers.length) {
 
     fadeTargets.forEach((el) => fadeObserver.observe(el));
   } else {
-    // Фолбэк
+    // Фолбэк для старых браузеров
     fadeTargets.forEach((el) => el.classList.add('appear'));
-    $$('.skill-progress-bar').forEach((bar) => bar.classList.add('animate'));
   }
 
   // ========== СКРЫТИЕ ХЕДЕРА ПРИ СКРОЛЛЕ ==========
@@ -178,19 +179,14 @@ if (statNumbers.length) {
     }, { passive: true });
   }
 
-  // ========== ФОРМЫ ==========
-  // TODO: вынести в сервисный слой при появлении реального API.
-  // Пример будущей интеграции:
-  // import { sendContactRequest } from './api/contact.js';
-  // await sendContactRequest({ name, email, message });
-
+  // ========== КОНТАКТНАЯ ФОРМА (Formspree) ==========
   const showStatus = (el, html) => { if (el) el.innerHTML = html; };
   const clearStatusLater = (el, ms) => setTimeout(() => showStatus(el, ''), ms);
   const isValidEmail = (v) => /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/.test(v);
 
-  // Контактная форма
   const contactForm = $('#contactForm');
   const contactStatus = $('#contactFormStatus');
+
   contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const name = $('#contactName').value.trim();
@@ -208,37 +204,17 @@ if (statNumbers.length) {
 
     showStatus(contactStatus, '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Отправка...');
     try {
-      // Заглушка вместо реального API
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const res = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(contactForm)
+      });
+      if (!res.ok) throw new Error('bad response');
       showStatus(contactStatus, '<span style="color:#4ade80;">✅ Сообщение отправлено! Я свяжусь с вами.</span>');
       contactForm.reset();
       clearStatusLater(contactStatus, 5000);
     } catch (err) {
-      showStatus(contactStatus, '<span style="color:#ff6b4a;">Не удалось отправить. Попробуйте позже или напишите в Telegram.</span>');
-    }
-  });
-
-  // Форма отзыва
-  const reviewForm = $('#reviewForm');
-  const reviewStatus = $('#reviewFormStatus');
-  reviewForm?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const name = $('#reviewName').value.trim();
-    const text = $('#reviewText').value.trim();
-
-    if (!name || !text) {
-      showStatus(reviewStatus, '<span style="color:#ff6b4a;">Заполните имя и отзыв</span>');
-      return;
-    }
-
-    showStatus(reviewStatus, '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Отправка...');
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      showStatus(reviewStatus, '<span style="color:#4ade80;">✅ Спасибо! Отзыв будет опубликован после проверки.</span>');
-      reviewForm.reset();
-      clearStatusLater(reviewStatus, 3000);
-    } catch (err) {
-      showStatus(reviewStatus, '<span style="color:#ff6b4a;">Не удалось отправить. Попробуйте позже.</span>');
+      showStatus(contactStatus, '<span style="color:#ff6b4a;">Не удалось отправить. Напишите мне в Telegram — отвечу быстрее.</span>');
     }
   });
 })();
