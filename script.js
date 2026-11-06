@@ -10,7 +10,7 @@
   // ========== НАСТРОЙКИ ==========
   // Зарегистрируйтесь на formspree.io, создайте форму
   // и вставьте сюда свой адрес вида https://formspree.io/f/xxxxxx
-  const FORMSPREE_URL = 'https://formspree.io/f/ВАШ_ID';
+  const FORMSPREE_URL = 'https://formspree.io/f/xvznolvo';
 
   // ========== ТЕМА ==========
   const themeToggle = $('#themeToggle');
